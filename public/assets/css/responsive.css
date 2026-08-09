@@ -1,0 +1,355 @@
+@media (min-width: 1400px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+   .btn {
+      font-size: 1.0625rem;
+   }
+   
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+      line-height: 30px;
+      top: 19px;
+   }
+
+   .reviews-1-wrapper:after {
+      width: 88%;
+      left: 6%;
+      border-radius: 8px;
+   }
+
+   .faqs-1 .faqs-accordion .accordion-thumb:after,
+   .faqs-1 .faqs-accordion .is-active .accordion-thumb:after {
+      top: 23px;
+   }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+   
+   .animate__animated {
+      transition-property: none !important;
+      transform: none !important;
+      animation: none !important;
+      opacity: 1;
+   }
+
+   .wow {
+      animation-name: none !important;
+      visibility: visible !important;
+   }
+
+   .btn {
+      font-size: 1.125rem;
+   }
+
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      top: 17px;
+   }
+
+   .video-btn {
+      width: 7rem;
+      height: 7rem;
+      margin-top: -3.5rem;
+      margin-left: -3.5rem;
+   }
+
+   .video-btn span {
+      font-size: 5.65rem;
+      margin-left: 10px;
+   }
+
+   .reviews-1-wrapper:after {
+      width: 86%;
+      left: 7%;
+      border-radius: 8px;
+   }
+
+   .pr-tag {
+      left: 25px;
+   }
+
+   .pr-desc {
+      padding: 130px 50px 20px 20px;
+   }
+
+   .pr-data-txt {
+      bottom: 35px;
+   }
+
+   .filter-item:hover .pr-tag {
+      left: 25px;
+      top: 16px;
+   }
+
+   .filter-item:hover .pr-data-txt {
+      left: 25px;
+   }
+
+   .filter-item:hover .pr-source {
+      right: 25px;
+   }
+
+   .faqs-1 .faqs-accordion .accordion-thumb:after,
+   .faqs-1 .faqs-accordion .is-active .accordion-thumb:after {
+      top: 24px;
+   }
+
+}
+
+@media (max-width: 767px) {
+
+   .animate__animated {
+      transition-property: none !important;
+      transform: none !important;
+      animation: none !important;
+      opacity: 1;
+   }
+
+   .wow {
+      animation-name: none !important;
+      visibility: visible !important;
+   }
+
+   .bg-fixed {
+      background-attachment: scroll!important;
+   }
+
+   .txt-block h1,
+   .txt-block h2 {
+      line-height: 1.3;
+   }
+
+   .btn {
+      font-size: 1.0625rem;
+   }
+
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      top: 17px;
+   }
+
+   .video-btn {
+      width: 6rem;
+      height: 6rem;
+      margin-top: -3rem;
+      margin-left: -3rem;
+   }
+
+   .video-btn span {
+      font-size: 4.75rem;
+      margin-left: 8px;
+   }
+
+   .reviews-1-wrapper:after {
+      width: 100%;
+      left: 0;
+      border-radius: 0;
+   }
+
+   .faqs-1 .faqs-accordion .accordion-thumb:after,
+   .faqs-1 .faqs-accordion .is-active .accordion-thumb:after {
+      top: 23px;
+   }
+  
+   
+}
+
+@media (min-width: 391px) and (max-width: 414px) {
+
+   .txt-block h1,
+   .txt-block h2 {
+      line-height: 1.3;
+   }
+
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+      line-height: 30px;
+      top: 17px;
+   }
+
+   .video-btn {
+      width: 5.5rem;
+      height: 5.5rem;
+      margin-top: -2.75rem;
+      margin-left: -2.75rem;
+   }
+
+   .video-btn span {
+      font-size: 4.5rem;
+      margin-left: 8px;
+   }
+
+   .pr-tag {
+      left: 25px;
+   }
+
+   .pr-desc {
+      padding: 130px 50px 25px 25px;
+   }
+
+   .pr-data-txt {
+      bottom: 35px;
+   }
+
+   .filter-item:hover .pr-tag {
+      left: 25px;
+      top: 16px;
+   }
+
+   .filter-item:hover .pr-data-txt {
+      left: 25px;
+   }
+
+   .filter-item:hover .pr-source {
+      right: 25px;
+   }
+
+   .faqs-1 .faqs-accordion .accordion-thumb:after,
+   .faqs-1 .faqs-accordion .is-active .accordion-thumb:after {
+      top: 21px;
+   }
+   
+}
+
+@media (min-width: 361px) and (max-width: 390px) {
+
+   .txt-block h1,
+   .txt-block h2 {
+      line-height: 1.3;
+   }
+
+   .btn.btn-md {
+      padding: 0.9375rem 1.25rem;
+   }
+
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+      line-height: 30px;
+      top: 17px;
+   }
+
+   .video-btn {
+      width: 5.3rem;
+      height: 5.3rem;
+      margin-top: -2.65rem;
+      margin-left: -2.65rem;
+   }
+
+   .video-btn span {
+      font-size: 4.25rem;
+      margin-left: 8px;
+   }
+
+   .pr-tag {
+      left: 20px;
+   }
+
+   .pr-desc {
+      padding: 130px 50px 20px 20px;
+   }
+
+   .pr-data-txt {
+      bottom: 35px;
+   }
+
+   .filter-item:hover .pr-tag {
+      left: 20px;
+      top: 16px;
+   }
+
+   .filter-item:hover .pr-data-txt {
+      left: 20px;
+   }
+
+   .filter-item:hover .pr-source {
+      right: 20px;
+   }
+
+   .faqs-1 .txt-accordion .accordion-thumb:after,
+   .faqs-1 .txt-accordion .is-active .accordion-thumb:after {
+      top: 15px;
+   }
+
+}
+
+@media (max-width: 360px) {
+
+   .txt-block h1,
+   .txt-block h2 {
+      line-height: 1.3;
+   }
+
+   .btn.btn-md {
+      padding: 0.9375rem 1.25rem;
+   }
+
+   .txt-accordion .accordion-thumb:after,
+   .txt-accordion .is-active .accordion-thumb:after {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+      line-height: 30px;
+      top: 17px;
+   }
+
+   .video-btn {
+      width: 5rem;
+      height: 5rem;
+      margin-top: -2.5rem;
+      margin-left: -2.5rem;
+   }
+
+   .video-btn span {
+      font-size: 4.15rem;
+      margin-left: 8px;
+   }
+
+   .pr-tag {
+      left: 20px;
+   }
+
+   .pr-desc {
+      padding: 130px 50px 20px 20px;
+   }
+
+   .pr-data-txt {
+      bottom: 35px;
+   }
+
+   .filter-item:hover .pr-tag {
+      left: 20px;
+      top: 16px;
+   }
+
+   .filter-item:hover .pr-data-txt {
+      left: 20px;
+   }
+
+   .filter-item:hover .pr-source {
+      right: 20px;
+   }
+
+   .faqs-1 .txt-accordion .accordion-thumb:after,
+   .faqs-1 .txt-accordion .is-active .accordion-thumb:after {
+      top: 15px;
+   }
+   
+}

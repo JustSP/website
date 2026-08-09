@@ -1,0 +1,2481 @@
+/*
+ * Plugin: Web Slide Navigation System
+ * Demo Link: https://uxwing.com/webslide/
+ * Author: UXWing
+ * License: http://codecanyon.net/licenses/standard
+*/
+
+/*------------------------------------------*/
+/*  Desktop Base CSS
+--------------------------------------------*/
+
+.wsmenu html,
+.wsmenu body,
+.wsmenu iframe,
+.wsmenu h1,
+.wsmenu h2,
+.wsmenu h3,
+.wsmenu h4,
+.wsmenu h5,
+.wsmenu h6 {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.wsmenu .cl,
+.wsmenu:after {
+  clear: both;
+}
+
+.wsmenu img {
+  border: 0 none;
+  max-width: 100%;
+}
+
+.wsmenu a:focus {
+  outline: none;
+}
+
+.wsmenu:before,
+.wsmenu:after {
+  content: "";
+  display: table;
+}
+
+/*------------------------------------------*/
+/*  Desktop Main Menu CSS
+--------------------------------------------*/
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.headerwp {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.posrlt {
+  position: relative;
+}
+
+.wsmenucontainer {
+  overflow: hidden;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+}
+
+.wsmainwp {
+  position: relative;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wsmainfull {
+  width: 100%;
+  height: auto;
+  background-color: #fff !important;
+  z-index: 1031;
+  border: none !important;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.1);
+  transition: all 450ms ease-in-out;
+}
+
+.tra-menu .wsmainfull {
+  padding: 20px 0;
+  background-color: transparent !important;
+  box-shadow: none;
+  transition: all 450ms ease-in-out;
+}
+
+.white-menu .wsmainfull {
+  padding: 6px 0;
+  background-color: #fff !important;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+  transition: all 450ms ease-in-out;
+}
+
+.dark .white-menu .wsmainfull {
+  background-color: #101219 !important;
+  box-shadow: 0 2px 3px rgba(16, 18, 25, 0.15);
+  transition: all 450ms ease-in-out;
+}
+
+.tra-menu .wsmainfull.scroll,
+.white-menu .wsmainfull.scroll {
+  padding: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.03) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+#header.hiddden-header {
+  display: none;
+}
+
+.hidden-nav .wsmainfull {
+  margin-top: -140px;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+  transition: all 400ms ease-in-out;
+}
+
+.hidden-nav .wsmainfull.scroll {
+  margin-top: 0;
+}
+
+/*------------------------------------------*/
+/* HEADER LOGO
+/*------------------------------------------*/
+
+.desktoplogo {
+  padding: 0;
+  margin: 0;
+  float: left;
+  line-height: 80px;
+}
+
+.desktoplogo img {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  max-width: inherit;
+}
+
+.logo-white,
+.logo-black {
+  display: block;
+}
+
+.navbar-dark .logo-white,
+.navbar-light .logo-black,
+.tra-menu.navbar-light .scroll .logo-white {
+  display: none;
+}
+
+.tra-menu.navbar-light .scroll .logo-black {
+  display: block;
+}
+
+/*------------------------------------------*/
+/* NAVIGATION MENU
+/*------------------------------------------*/
+
+.wsmenu {
+  display: block;
+  float: right;
+  padding: 0;
+}
+
+.wsmenu > .wsmenu-list {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 auto 0 auto;
+  padding: 0;
+}
+
+.wsmenu > .wsmenu-list > li {
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.wsmenu > .wsmenu-list > li > a {
+  display: block;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 60px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-decoration: none;
+  margin: 0 8px;
+  padding: 10px 15px;
+}
+
+.wsmenu > .wsmenu-list.text-uppercase > li > a.h-link {
+  font-size: 0.815rem;
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+}
+
+.wsmenu > .wsmenu-list.text-uppercase .link-list a {
+  text-transform: none;
+}
+
+.navbar-dark .wsmenu > .wsmenu-list > li > a.h-link {
+  color: #181d27;
+}
+
+.navbar-dark .wsmenu-list > li > a.h-link:hover {
+  color: #21164c;
+}
+
+.navbar-light .wsmenu > .wsmenu-list > li > a.h-link {
+  color: #fff;
+}
+
+.navbar-light .wsmenu-list > li > a.h-link:hover {
+  color: #e7e7e7;
+}
+
+.navbar-light .scroll .wsmenu-list > li > a.h-link:hover {
+  color: #21164c !important;
+}
+
+.tra-menu.navbar-dark .scroll .wsmenu > .wsmenu-list > li > a.h-link,
+.tra-menu.navbar-light .scroll .wsmenu > .wsmenu-list > li > a.h-link {
+  color: #181d27;
+}
+
+.wsmenu > .wsmenu-list > li > a.h-link.last-link {
+  padding: 10px 0px;
+  margin: 0;
+}
+
+.wsmenu > .wsmenu-list > li > a .wsarrow:after {
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-top: 4px solid;
+  content: "";
+  float: right;
+  right: 0;
+  height: 0;
+  margin: 0 0 0 17px;
+  position: absolute;
+  text-align: right;
+  top: 40px;
+  width: 0;
+}
+
+.wsmenu > .wsmenu-list.text-uppercase > li > a .wsarrow:after {
+  top: 37px;
+}
+
+/*------------------------------------------*/
+/* HEADER LINK INFO
+/*------------------------------------------*/
+
+span.sm-info {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  font-size: 0.7875rem;
+  line-height: 22px;
+  font-weight: 500;
+  top: -1.5px;
+  margin-left: 8px;
+  border-radius: 100%;
+}
+
+/*------------------------------------------*/
+/* HEADER BUTTON
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li a.btn {
+  font-size: 1.025rem;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 18px 0 0;
+  padding: 5px 16px;
+}
+
+.wsmenu > .wsmenu-list > li a.btn .btn-text.text-uppercase {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.dark .wsmenu > .wsmenu-list > li a.btn,
+.dark .wsmenu > .wsmenu-list > li a.btn .btn-text {
+  color: #fff;
+}
+
+.dark .wsmenu > .wsmenu-list > li a.btn.btn-lime,
+.dark .wsmenu > .wsmenu-list > li a.btn.btn-lime .btn-text {
+  color: #151515;
+}
+
+.centered-menu .wsmenu > .wsmenu-list > li a.btn {
+  padding: 6px 13px 5px;
+}
+
+.wsmenu > .wsmenu-list > li.reg-fst-link.m-left > a {
+  margin-left: 65px;
+}
+
+.wsmenu > .wsmenu-list > li.m-right > a {
+  margin-right: 60px;
+}
+
+.nl-simple.m-left .btn {
+  margin-left: 65px;
+}
+
+/*------------------------------------------*/
+/* LANGUAGE SELECT
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li.lang {
+  margin-right: 12px;
+}
+
+.wsmenu > .wsmenu-list > li.lang > ul.sub-menu {
+  width: auto;
+  min-width: 115px !important;
+  padding: 8px 5px;
+}
+
+.wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a {
+  font-size: 0.875rem;
+  padding: 8px 11px;
+}
+
+.wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a:hover {
+  padding: 8px 11px;
+}
+
+/*------------------------------------------*/
+/* HEADER SUBMENU
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 70px;
+  z-index: 1000;
+  width: auto;
+  min-width: 210px;
+  top: 62px;
+  background-color: #fff;
+  border: solid 1px #eee;
+  margin: 0;
+  padding: 14px 22px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+  transform-origin: 0% 0%;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  transform-style: preserve-3d;
+  transform: rotateX(-75deg);
+}
+
+.wsmenu > .wsmenu-list > li:hover > ul.sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a {
+  display: block;
+  text-align: left;
+  text-transform: none;
+  color: #6c757d;
+  font-size: 1.05rem;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 9px 0;
+  border-right: 0 none;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover {
+  padding: 9px 0 9px 4px;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a > i {
+  position: absolute;
+  top: 12px;
+  right: 0;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform-style: preserve-3d;
+  transform: rotateX(-75deg);
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li:hover > ul.sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform-origin: 0% 0%;
+  transition:
+    transform 0.4s,
+    opacity 0.4s;
+  transform: rotateX(0deg);
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: 0% 0%;
+  transition:
+    transform 0.4s,
+    opacity 0.4s;
+  transform-style: preserve-3d;
+  transform: rotateX(-75deg);
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li:hover
+  > ul.sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+}
+
+/*------------------------------------------*/
+/*  HEADER SUBMENU SUBMENU
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+  min-width: 190px;
+  position: absolute;
+  left: 102%;
+  top: 0;
+  margin: 0;
+  padding: 12px 20px;
+  list-style: none;
+  background-color: #fff;
+  border: solid 1px #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border-bottom: none;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li:last-child {
+  border-bottom: none;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a {
+  display: block;
+  position: relative;
+  text-align: left;
+  text-transform: none;
+  color: #6c757d;
+  font-size: 1.05rem;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: normal;
+  padding: 9px 0;
+  border-right: 0 none;
+  transition: all 0.3s ease-in-out;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover {
+  padding: 9px 0 9px 4px;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a > i {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+  position: absolute;
+  top: 11px;
+  right: 9px;
+}
+
+.sub-menu.ico-10 [class*="flaticon-"]:before,
+.sub-menu.ico-10 [class*="flaticon-"]:after {
+  font-size: 0.75rem;
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu {
+  min-width: 200px;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  border: solid 1px #eee;
+  border-radius: 4px;
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > a {
+  display: block;
+  text-align: left;
+  text-transform: none;
+  color: #6c757d;
+  font-size: 1.05rem;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: normal;
+  padding: 9px 0;
+  border-right: 0 none;
+  transition: all 0.3s ease-in-out;
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > a:hover {
+  padding: 9px 0 9px 4px;
+}
+
+.wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > a
+  > i {
+  margin-left: 9px;
+}
+
+/*------------------------------------------*/
+/* MEGAMENU
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu {
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  text-align: left;
+  background-color: #fff;
+  border: solid 1px #eee;
+  padding: 20px 30px;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+  transform-origin: 0% 0%;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  transform-style: preserve-3d;
+  transform: rotateX(-75deg);
+}
+
+.wsmenu > .wsmenu-list > li:hover > .wsmegamenu {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 {
+  width: 64% !important;
+  left: 30%;
+  padding: 20px 25px;
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li {
+  display: block;
+  text-align: center;
+  text-align: left;
+  border-bottom: none;
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+.wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a {
+  display: block;
+  border-right: none;
+  text-align: left;
+  color: #6c757d;
+  font-size: 1.05rem;
+  line-height: 22px;
+  font-weight: 400;
+  padding: 9px 0;
+  border-right: 0 none;
+  transition: all 0.3s ease-in-out;
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+.wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a:hover {
+  padding: 9px 0 9px 4px;
+}
+
+/*------------------------------------------*/
+/* HALFMENU
+/*------------------------------------------*/
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+  width: 28%;
+  right: auto;
+  left: auto;
+  padding: 14px 22px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.13);
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu.ext-halfmenu {
+  width: 50%;
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu.halfdiv {
+  width: 35%;
+  right: auto;
+  left: auto;
+}
+
+/*------------------------------------------*/
+/*  MEGAMENU TITLE
+/*------------------------------------------*/
+
+.wsmegamenu p.title {
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 5px 0 15px;
+}
+
+.wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li.title,
+.wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li:last-child {
+  border-bottom: none;
+}
+
+/*------------------------------------------*/
+/*  Desktop Extra CSS
+--------------------------------------------*/
+
+.hometext,
+.wsmobileheader,
+.wsmenu .wsmenu-click,
+.wsmenu .wsmenu-click02 {
+  display: none;
+}
+
+.overlapblackbg {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*------------------------------------------*/
+/*  DARK MODE
+/*------------------------------------------*/
+
+.dark .navbar-dark .wsmenu > .wsmenu-list > li > a,
+.dark .navbar-light .wsmenu > .wsmenu-list > li > a,
+.dark .navbar-dark.inner-page-header .wsmenu > .wsmenu-list > li > a,
+.dark .navbar-dark.light-hero-header .wsmenu > .wsmenu-list > li > a {
+  color: #dee1ea;
+}
+
+.dark .navbar-dark .wsmenu > .wsmenu-list > li > a.btn,
+.dark .navbar-light .wsmenu > .wsmenu-list > li > a.btn {
+  color: #fff;
+}
+
+.dark .navbar-dark .wsmenu-list > li > a.h-link:hover,
+.dark .navbar-light .wsmenu-list > li > a.h-link:hover,
+.dark .navbar-light .wsmenu > .wsmenu-list > li > a:hover,
+.dark .navbar-dark.inner-page-header .wsmenu > .wsmenu-list > li > a:hover,
+.dark .navbar-dark.light-hero-header .wsmenu > .wsmenu-list > li > a:hover {
+  color: #eee !important;
+}
+
+.dark .navbar-light .wsmenu > .wsmenu-list > li > a.btn:hover {
+  color: #fff !important;
+}
+
+.dark .navbar-light .wsmenu > .wsmenu-list > li > a.btn.btn--lime:hover {
+  color: #31363f !important;
+}
+
+.dark .nav-coal .sm-info {
+  background-color: #d5d52b;
+  color: #31363f !important;
+}
+
+/*------------------------------------------*/
+/*  HEADER SUBMENU / MEGAMENU
+/*------------------------------------------*/
+
+.dark .wsmenu > .wsmenu-list > li > ul.sub-menu,
+.dark .wsmenu > .wsmenu-list > li > .wsmegamenu,
+.dark .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu,
+.dark .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+  background-color: #191c28 !important;
+  border: solid 1px rgba(43, 48, 64, 0.7) !important;
+  box-shadow: 0 2px 3px rgba(1, 1, 1, 0.1);
+}
+
+.dark .wsmenu > .wsmenu-list > li > ul.sub-menu:before,
+.dark .wsmenu > .wsmenu-list > li.mg_link:hover > a:after,
+.dark .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu:before {
+  background-color: #101219;
+  border-left: solid #101219;
+  border-top: solid 1px #101219;
+}
+
+.dark .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+.dark .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+.dark .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+.dark .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a {
+  color: #dee1ea;
+  background-color: transparent !important;
+}
+
+.dark .scroll .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+.dark
+  .dark
+  .wsmenu
+  > .wsmenu-list
+  > li
+  > ul.sub-menu
+  > li
+  > ul.sub-menu
+  > li
+  > a,
+.dark
+  .scroll
+  .wsmenu
+  > .wsmenu-list
+  > li
+  > .wsmegamenu.w-70
+  ul.link-list
+  > li
+  > a,
+.dark
+  .scroll
+  .wsmenu
+  > .wsmenu-list
+  > li
+  > .wsmegamenu.halfmenu
+  ul.link-list
+  > li
+  > a {
+  color: #dee1ea;
+}
+
+.dark .wsmegamenu p.title {
+  color: #fff;
+}
+
+/*------------------------------------------*/
+/*  NAVBAR SCROLL
+/*------------------------------------------*/
+
+.dark .tra-menu .wsmainfull.scroll,
+.dark .white-menu .wsmainfull.scroll {
+  background: rgba(16, 18, 25, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark .tra-menu.navbar-dark .scroll .wsmenu > .wsmenu-list > li > a,
+.dark .tra-menu.navbar-light .scroll .wsmenu > .wsmenu-list > li > a,
+.dark .tra-menu.navbar-dark .scroll .wsmenu > .wsmenu-list > li > a.h-link,
+.dark .tra-menu.navbar-light .scroll .wsmenu > .wsmenu-list > li > a.h-link {
+  color: #dee1ea;
+}
+
+.dark .tra-menu.navbar-dark .scroll .wsmenu > .wsmenu-list > li > a.btn,
+.dark .tra-menu.navbar-light .scroll .wsmenu > .wsmenu-list > li > a.btn {
+  color: #fff;
+}
+
+.dark .navbar-light .scroll .wsmenu-list > li > a.h-link:hover {
+  color: #fff !important;
+}
+
+.dark .navbar-light .scroll .wsmenu-list > li > a.btn--lime:hover {
+  color: #31363f !important;
+}
+
+/*==============================================================================
+                              Start Mobile CSS
+===============================================================================*/
+
+/* ================== Mobile Menu Change Brake Point ================== */
+
+@media only screen and (max-width: 991px) {
+  /* ================== Mobile Base CSS ================== */
+
+  html {
+    overflow: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  body.wsactive {
+    overflow: hidden;
+  }
+
+  /* ================== Mobile Main Menu CSS ================== */
+
+  .desktoplogo {
+    display: none;
+  }
+
+  .wsmainfull {
+    height: 0;
+  }
+
+  .wsmenu {
+    width: 100%;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    right: 0;
+    overflow-y: hidden;
+    padding: 0;
+    top: 0;
+    visibility: hidden;
+    position: fixed;
+    margin: 0;
+  }
+
+  .wsmenu > .wsmenu-list {
+    height: auto;
+    min-height: 100%;
+    width: 350px;
+    background: #fff;
+    padding-bottom: 0;
+    margin-right: -350px;
+    display: block;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .wsmenu > .wsmenu-list > li {
+    width: 100%;
+    display: block;
+    float: none;
+    border-right: none;
+    background-color: transparent;
+    position: relative;
+    white-space: inherit;
+    clear: right;
+  }
+
+  @supports (-webkit-overflow-scrolling: touch) {
+    .wsmenu > .wsmenu-list > li:last-child {
+      padding-bottom: 110px;
+    }
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    padding: 12px 32px 12px 17px;
+    font-size: 15px;
+    text-align: left;
+    border-right: solid 0;
+    line-height: 25px;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(0, 0, 0, 0.13);
+    position: static;
+  }
+
+  .wsmenu > .wsmenu-list > li a.menuhomeicon {
+    padding-left: 17px;
+    padding-right: 17px;
+    border-top: solid 1px rgba(0, 0, 0, 0.13);
+  }
+
+  .wsmenu > .wsmenu-list > li > a.menuhomeicon i {
+    margin-right: 2px;
+    font-size: 13px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a > i {
+    font-size: 14px;
+    color: #bfbfbf;
+  }
+
+  .wsmenu > .wsmenu-list > li > a .wsarrow:after {
+    display: none;
+  }
+
+  .wsmenu > .wsmenu-list > li:hover > a {
+    background-color: rgba(0, 0, 0, 0.03);
+    text-decoration: none;
+  }
+
+  .wsmenu > .wsmenu-list > li > a > .hometext {
+    display: inline-block;
+  }
+
+  /* ================== Mobile Slide Down Links CSS ================== */
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu {
+    display: none;
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    border: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: inherit;
+  }
+  /*
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a {
+  line-height: 20px;
+  font-size: 13px;
+  padding: 10px 0px 10px 16px;
+  color: #383838;
+}
+*/
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li span + a {
+    padding-right: 30px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a > i {
+    display: none;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover {
+    background-color: #e7e7e7;
+    text-decoration: underline;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu li:hover > a {
+    background-color: #e7e7e7;
+    color: #666666;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+    width: 100%;
+    position: static;
+    left: 100%;
+    top: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: solid 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: inherit;
+    transform-style: flat;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    line-height: 20px;
+    font-size: 13px;
+    padding: 10px 0 10px 26px;
+    color: #383838;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li span + a {
+    padding-right: 30px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a > i {
+    display: none;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover {
+    background-color: #e7e7e7;
+    color: #666;
+    text-decoration: underline;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a.active {
+    color: #000;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a {
+    color: #000;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu {
+    width: 100%;
+    position: static;
+    left: 100%;
+    top: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: solid 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: inherit;
+    transform-style: flat;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li {
+    margin: 0;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > a {
+    line-height: 20px;
+    font-size: 13px;
+    padding: 10px 0 10px 34px;
+    color: #383838;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    span
+    + a {
+    padding-right: 30px;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > a
+    > i {
+    display: none;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > a:hover {
+    background-color: #e7e7e7;
+    color: #666;
+    text-decoration: underline;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > ul.sub-menu
+    > li
+    > a.active {
+    color: #000;
+  }
+
+  /* ================== Mobile Mega Menus CSS  ================== */
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu {
+    color: #666666;
+    display: none;
+    position: relative;
+    top: 0;
+    padding: 10px 0;
+    border: solid 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: inherit;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    transform-style: flat;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    width: 100%;
+    margin: 0;
+    padding: 5px 0 10px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    color: #666;
+    font-size: 15px;
+    padding: 10px 8px 10px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu > ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu > ul > li > a {
+    padding: 9px 14px;
+    line-height: normal;
+    font-size: 13px;
+    background-color: #e7e7e7;
+    color: #666;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu > ul > li > a:hover {
+    background-color: #000000;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu ul li.title {
+    line-height: 26px;
+    color: #666;
+    margin: 0;
+    font-size: 15px;
+    padding: 7px 0;
+    background-color: transparent;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfdiv {
+    width: 100%;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .menu_form {
+    padding: 5px 0 62px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .show-grid div {
+    margin: 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .menu_form input[type="button"] {
+    width: 46%;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .menu_form input[type="submit"] {
+    width: 46%;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .menu_form textarea {
+    min-height: 100px;
+  }
+
+  /* ================== Mobile Header CSS ================== */
+
+  .wsmobileheader {
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10002;
+    height: 54px;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .wsactive .wsmobileheader {
+    margin-right: 350px;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .wsmobileheader .smllogo {
+    display: inline-block;
+  }
+
+  .smllogo img {
+    display: inline-block;
+  }
+
+  .callusbtn {
+    color: #a9a9a9;
+    font-size: 18px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    transition: all 0.4s ease-in-out 0s;
+    z-index: 102;
+    padding: 12px 14px;
+  }
+
+  .callusbtn i {
+    vertical-align: top;
+    margin-top: 4px;
+  }
+
+  .callusbtn:hover i {
+    color: #a9a9a9;
+  }
+
+  /* Mobile Toggle Menu icon (X ICON) */
+  .wsanimated-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 102;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .wsanimated-arrow {
+    cursor: pointer;
+    padding: 16px 35px 16px 0;
+    margin: 7px 0 0 15px;
+  }
+
+  .wsanimated-arrow span,
+  .wsanimated-arrow span:before,
+  .wsanimated-arrow span:after {
+    cursor: pointer;
+    height: 3px;
+    width: 22px;
+    background: #a9a9a9;
+    position: absolute;
+    display: block;
+    content: "";
+  }
+
+  .wsanimated-arrow span:before {
+    top: -7px;
+    width: 26px;
+  }
+
+  .wsanimated-arrow span:after {
+    bottom: -7px;
+    width: 20px;
+  }
+
+  .wsanimated-arrow span,
+  .wsanimated-arrow span:before,
+  .wsanimated-arrow span:after {
+    transition: all 500ms ease-in-out;
+  }
+
+  .wsactive .wsanimated-arrow span:after {
+    width: 23px;
+  }
+
+  .wsactive .wsanimated-arrow span {
+    background-color: transparent;
+  }
+
+  .wsactive .wsanimated-arrow span:before,
+  .wsactive .wsanimated-arrow.active span:after {
+    top: 7px;
+  }
+
+  .wsactive .wsanimated-arrow span:before {
+    transform: rotate(45deg);
+    bottom: 0;
+  }
+
+  .wsactive .wsanimated-arrow span:after {
+    transform: rotate(-45deg);
+  }
+
+  /* ================== Mobile Overlay/Drawer CSS ================== */
+
+  .overlapblackbg {
+    left: 0;
+    width: calc(100% - 350px);
+    height: 100vh;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+  }
+
+  .wsactive .wsmenu .overlapblackbg {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 8888 !important;
+  }
+
+  .wsmenucontainer {
+    transition: all 0.25s ease-in-out;
+  }
+
+  .wsactive .wsmenucontainer {
+    margin-right: 300px;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .wsactive .wsmenu {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    visibility: visible;
+    z-index: 1000;
+    top: 0;
+  }
+
+  .wsactive .wsmenu > .wsmenu-list {
+    transition: all 0.25s ease-in-out;
+    margin-right: 0;
+  }
+
+  /* ================== Mobile Sub Menu Expander Arrows  ================== */
+
+  .wsmenu > .wsmenu-list > li > .wsmenu-click {
+    height: 49px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .wsmenu > .wsmenu-list > li .wsmenu-click.ws-activearrow > i {
+    transform: rotate(-45deg);
+    margin-top: 23px;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmenu-click > i {
+    display: block;
+    height: 8px;
+    width: 8px;
+    float: right;
+    transform: rotate(-225deg);
+    margin: 18px 18px 0 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmenu-click > i:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-width: 1.5px 1.5px 0 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
+    display: block;
+    transform-origin: 100% 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li .wsmenu-click02 {
+    height: 41px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li .wsmenu-click02 > i {
+    display: block;
+    height: 8px;
+    width: 8px;
+    float: right;
+    transform: rotate(-225deg);
+    margin: 14px 18px 0 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li .wsmenu-click02 > i:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-width: 1.5px 1.5px 0 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
+    display: block;
+    transform-origin: 100% 0;
+  }
+
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    .wsmenu-click02
+    > i.wsmenu-rotate {
+    transform: rotate(-45deg);
+    margin-top: 19px;
+  }
+}
+
+/* Extra @Media Query*/
+@media (min-width: 1399px) {
+  .headerwp,
+  .wsmainwp {
+    max-width: 1320px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wsmainwp {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .headerwp {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.95px) {
+  .desktoplogo {
+    line-height: 70px;
+  }
+
+  .tra-menu .wsmainfull {
+    padding: 15px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1rem;
+    line-height: 50px;
+    margin: 0 5px;
+    padding: 10px 15px;
+  }
+  .wsmenu > .wsmenu-list > li > a .wsarrow:after {
+    top: 35px;
+  }
+
+  span.sm-info {
+    width: 20px;
+    height: 20px;
+    font-size: 0.735rem;
+    line-height: 20px;
+    margin-left: 6px;
+  }
+
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 0.915rem;
+    line-height: 28px;
+    margin: 15px 0 0;
+    padding: 4px 14px;
+  }
+  .wsmenu > .wsmenu-list > li.reg-fst-link.m-left > a,
+  .nl-simple.m-left .btn {
+    margin-left: 20px;
+  }
+  .wsmenu > .wsmenu-list > li.m-right > a {
+    margin-right: 40px;
+  }
+
+  .wsmenu > .wsmenu-list > li.lang {
+    margin-right: 12px;
+  }
+  .wsmenu > .wsmenu-list > li.lang > a {
+    padding: 10px 14px 10px 6px;
+  }
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu {
+    min-width: 110px !important;
+    padding: 8px 5px;
+  }
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a {
+    font-size: 0.95rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu {
+    min-width: 190px;
+    padding: 10px 18px;
+  }
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+    min-width: 200px;
+    padding: 10px;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    width: 32%;
+    padding: 11px 20px;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 {
+    width: 75% !important;
+    left: 20%;
+    padding: 12px 24px 14px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    font-size: 0.95rem;
+    padding: 8px 0px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    padding: 8px 0 8px 4px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+    top: 9.5px;
+    right: 8px;
+  }
+
+  .col-img .video-preview {
+    margin-top: 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .wsmobileheader {
+    height: 80px;
+    top: 0;
+    box-shadow: 0 0 2px rgba(50, 50, 50, 0.4);
+  }
+  .tra-menu .wsmobileheader,
+  .white-menu .wsmobileheader {
+    background-color: #fff;
+  }
+
+  .wsmobileheader .smllogo {
+    display: block;
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 14px 0;
+    margin: 13px 0 0 28px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .dark .tra-menu .wsmobileheader,
+  .dark .white-menu .wsmobileheader {
+    background-color: #161821;
+  }
+  .dark .wsactive .wsmobileheader,
+  .dark .wsmenu > .wsmenu-list {
+    background-color: #161821;
+  }
+  .dark .wsmenu > .wsmenu-list > li > a {
+    border-color: #353535 !important;
+  }
+  .dark .wsmenu > .wsmenu-list > li > .wsmenu-click > i:before {
+    border-color: #fff;
+  }
+
+  .wsanimated-arrow {
+    padding: 14px 22px 14px 0px;
+    margin: 24px 28px 0 0;
+  }
+  .wsanimated-arrow span:before {
+    top: -8px;
+    width: 26px;
+  }
+  .wsanimated-arrow span:after {
+    bottom: -8px;
+    width: 20px;
+  }
+
+  .wsactive .wsanimated-arrow span:before,
+  .wsactive .wsanimated-arrow.active span:after {
+    width: 28px;
+    top: 0;
+  }
+  .wsactive .wsanimated-arrow span:after {
+    width: 28px;
+    top: 0;
+  }
+  .wsactive .wsanimated-arrow span {
+    background: transparent;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmenu-click {
+    height: 64px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.1rem;
+    line-height: 46px;
+    padding: 5px 32px 6px 20px;
+    margin: 0;
+  }
+  .tra-menu .wsmenu > .wsmenu-list > li > a.h-link,
+  .tra-menu.navbar-light .wsmenu > .wsmenu-list > li > a.h-link {
+    color: #6c757d;
+  }
+  .dark .tra-menu .wsmenu > .wsmenu-list > li > a.h-link,
+  .dark .tra-menu.navbar-light .wsmenu > .wsmenu-list > li > a.h-link {
+    color: #fff;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmenu-click > i {
+    height: 10px;
+    width: 10px;
+    margin: 20px 18px 0px 0px;
+  }
+  .wsmenu > .wsmenu-list > li .wsmenu-click.ws-activearrow > i {
+    transform: rotate(-45deg);
+    margin-top: 25px;
+  }
+
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a:hover {
+    padding: 12px 0;
+  }
+
+  span.sm-info {
+    width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+    line-height: 24px;
+    top: -1px;
+    margin-left: 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    width: 100% !important;
+    padding: 14px 22px;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 {
+    width: 100% !important;
+    left: 0;
+    padding: 14px 22px;
+  }
+  .col-img {
+    margin: 20px 0 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li.mobile-last-link > ul.sub-menu {
+    border-bottom: none !important;
+  }
+  .wsmenu > .wsmenu-list > li > ul.sub-menu,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    top: 0;
+    border-radius: 0;
+    box-shadow: 0 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: rotateX(0deg);
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+    width: 100% !important;
+    min-width: 100% !important;
+    box-shadow: 0 0;
+    border: none;
+    position: static;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 5px 0 0 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+    top: 4px;
+    right: 8px;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    color: #333 !important;
+    font-size: 0.95rem;
+    margin: 14px 0 4px 0;
+  }
+  .dark .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    color: #fff !important;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a {
+    color: #6c757d;
+    font-size: 1.0625rem;
+    padding: 12px 0;
+  }
+
+  .navbar-light .wsmenu-list > li > a.h-link:hover {
+    color: #181d27 !important;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    background-color: transparent;
+    padding: 12px 0;
+    text-decoration: none;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu li:hover > a {
+    background-color: transparent;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+    display: none;
+  }
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li .wsmenu-click02 > i {
+    height: 10px;
+    width: 10px;
+    transform: rotate(-225deg);
+    margin: 14px 0 0px 0px;
+  }
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    .wsmenu-click02
+    > i.wsmenu-rotate {
+    margin-top: 20px;
+  }
+
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.1rem;
+    line-height: 44px;
+    border-width: 2px;
+    padding: 4px 22px 6px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .wsmenu > .wsmenu-list > li.reg-fst-link.m-left > a,
+  .nl-simple.m-left .btn {
+    margin-left: 0;
+  }
+  .wsmenu > .wsmenu-list > li.m-right > a {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .headtoppart {
+    display: none;
+  }
+
+  .wsmobileheader {
+    height: 80px;
+    top: 0;
+    box-shadow: 0 0 2px rgba(50, 50, 50, 0.4);
+  }
+  .tra-menu .wsmobileheader,
+  .white-menu .wsmobileheader {
+    background-color: #fff;
+  }
+
+  .wsmobileheader .smllogo {
+    display: block;
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 14px 0;
+    margin: 13px 0 0 28px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .dark .tra-menu .wsmobileheader,
+  .dark .white-menu .wsmobileheader {
+    background-color: #161821;
+  }
+  .dark .wsactive .wsmobileheader,
+  .dark .wsmenu > .wsmenu-list {
+    background-color: #161821;
+  }
+  .dark .wsmenu > .wsmenu-list > li > a {
+    border-color: #353535 !important;
+  }
+  .dark .wsmenu > .wsmenu-list > li > .wsmenu-click > i:before {
+    border-color: #fff;
+  }
+
+  .wsanimated-arrow {
+    padding: 14px 22px 14px 0px;
+    margin: 24px 28px 0 0;
+  }
+  .wsanimated-arrow span:before {
+    top: -8px;
+    width: 26px;
+  }
+  .wsanimated-arrow span:after {
+    bottom: -8px;
+    width: 20px;
+  }
+
+  .wsactive .wsanimated-arrow span:before,
+  .wsactive .wsanimated-arrow.active span:after {
+    width: 28px;
+    top: 0;
+  }
+  .wsactive .wsanimated-arrow span:after {
+    width: 28px;
+    top: 0;
+  }
+  .wsactive .wsanimated-arrow span {
+    background: transparent;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmenu-click {
+    height: 64px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.125rem;
+    line-height: 46px;
+    padding: 5px 32px 6px 20px;
+    margin: 0;
+  }
+  .tra-menu .wsmenu > .wsmenu-list > li > a.h-link,
+  .tra-menu.navbar-light .wsmenu > .wsmenu-list > li > a.h-link {
+    color: #6c757d;
+  }
+  .dark .tra-menu .wsmenu > .wsmenu-list > li > a.h-link,
+  .dark .tra-menu.navbar-light .wsmenu > .wsmenu-list > li > a.h-link {
+    color: #fff;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmenu-click > i {
+    height: 10px;
+    width: 10px;
+    margin: 20px 18px 0px 0px;
+  }
+  .wsmenu > .wsmenu-list > li .wsmenu-click.ws-activearrow > i {
+    transform: rotate(-45deg);
+    margin-top: 25px;
+  }
+
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  .wsmenu > .wsmenu-list > li.lang > ul.sub-menu > li > a:hover {
+    padding: 12px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    width: 100% !important;
+    padding: 14px 22px;
+  }
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 {
+    width: 100% !important;
+    left: 0;
+    padding: 14px 22px;
+  }
+  .col-img {
+    margin: 20px 0 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li.mobile-last-link > ul.sub-menu {
+    border-bottom: none !important;
+  }
+  .wsmenu > .wsmenu-list > li > ul.sub-menu,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu {
+    top: 0;
+    border-radius: 0;
+    box-shadow: 0 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: rotateX(0deg);
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu {
+    width: 100% !important;
+    min-width: 100% !important;
+    box-shadow: 0 0;
+    border: none;
+    position: static;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 5px 0 0 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+    top: 4px;
+    right: 8px;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    color: #333 !important;
+    font-size: 0.95rem;
+    margin: 10px 0 5px 0;
+  }
+  .dark .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    color: #fff !important;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a {
+    color: #6c757d;
+    font-size: 1.05rem;
+    padding: 12px 0;
+  }
+
+  .navbar-light .wsmenu-list > li > a.h-link:hover {
+    color: #181d27 !important;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    background-color: transparent;
+    padding: 12px 0;
+    text-decoration: none;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu li:hover > a {
+    background-color: transparent;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a span {
+    display: none;
+  }
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li .wsmenu-click02 > i {
+    height: 10px;
+    width: 10px;
+    transform: rotate(-225deg);
+    margin: 14px 0 0px 0px;
+  }
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > ul.sub-menu
+    > li
+    .wsmenu-click02
+    > i.wsmenu-rotate {
+    margin-top: 20px;
+  }
+
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.125rem;
+    line-height: 44px;
+    border-width: 2px;
+    padding: 4px 22px 6px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .wsmenu > .wsmenu-list > li.reg-fst-link.m-left > a,
+  .nl-simple.m-left .btn {
+    margin-left: 0;
+  }
+  .wsmenu > .wsmenu-list > li.m-right > a {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767.98px) {
+  .wsmenu > .wsmenu-list {
+    width: 345px;
+    margin-right: -345px;
+  }
+  .wsactive .wsmobileheader {
+    margin-right: 345px;
+  }
+  .overlapblackbg {
+    width: calc(100% - 345px);
+  }
+
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 18px 0 0;
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 0 0;
+    margin: 15px 0 0 22px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+  }
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 18px 0 0;
+  }
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.2rem;
+  }
+
+  span.sm-info {
+    width: 23px;
+    height: 23px;
+    font-size: 0.825rem;
+    line-height: 22px;
+    top: -1px;
+    margin-left: 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.2rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    font-size: 1.15rem;
+    padding: 12px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 479.98px) {
+  .wsmenu > .wsmenu-list {
+    width: 325px;
+    margin-right: -325px;
+  }
+  .wsactive .wsmobileheader {
+    margin-right: 325px;
+  }
+  .overlapblackbg {
+    width: calc(100% - 325px);
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 0 0;
+    margin: 15px 0 0 22px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+  }
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 16px 0 0;
+  }
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.2rem;
+  }
+
+  span.sm-info {
+    width: 22px;
+    height: 22px;
+    font-size: 0.825rem;
+    line-height: 21px;
+    top: -1px;
+    margin-left: 10px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.2rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    font-size: 1.15rem;
+    padding: 11px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 413.98px) {
+  .wsmenu > .wsmenu-list {
+    width: 325px;
+    margin-right: -325px;
+  }
+  .wsactive .wsmobileheader {
+    margin-right: 325px;
+  }
+  .overlapblackbg {
+    width: calc(100% - 325px);
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 0 0;
+    margin: 15px 0 0 18px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+  }
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 16px 0 0;
+  }
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.2rem;
+  }
+
+  span.sm-info {
+    width: 22px;
+    height: 22px;
+    font-size: 0.825rem;
+    line-height: 21px;
+    top: -1px;
+    margin-left: 8px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.2rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    font-size: 1.15rem;
+    padding: 11px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 389.98px) {
+  .wsmenu > .wsmenu-list {
+    width: 290px;
+    margin-right: -290px;
+  }
+  .wsactive .wsmobileheader {
+    margin-right: 290px;
+  }
+  .overlapblackbg {
+    width: calc(100% - 290px);
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 0 0;
+    margin: 14px 0 0 18px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+  }
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 16px 0 0;
+  }
+  .wsmenu > .wsmenu-list > li a.btn {
+    font-size: 1.2rem;
+  }
+
+  span.sm-info {
+    width: 22px;
+    height: 22px;
+    font-size: 0.825rem;
+    line-height: 21px;
+    top: -1px;
+    margin-left: 8px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.2rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    font-size: 1.15rem;
+    padding: 11px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 320.98px) {
+  .wsmobileheader .smllogo {
+    margin-top: 24px;
+    padding-left: 15px;
+  }
+  .smllogo img {
+    max-height: 32px;
+  }
+
+  .wsmenu > .wsmenu-list {
+    width: 250px;
+    margin-right: -250px;
+  }
+  .wsactive .wsmobileheader {
+    margin-right: 250px;
+  }
+  .overlapblackbg {
+    width: calc(100% - 250px);
+  }
+
+  .callusbtn {
+    left: 0;
+    top: 0;
+    padding: 14px 0 0 0;
+    margin: 15px 0 0 18px;
+  }
+  .callusbtn.ico-20 [class^="flaticon-"]:before,
+  .callusbtn.ico-20 [class^="flaticon-"]:after {
+    font-size: 1.6rem;
+  }
+  .wsanimated-arrow {
+    padding: 14px 30px 14px 0px;
+    margin: 25px 15px 0 0;
+  }
+
+  span.sm-info {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    line-height: 22px;
+    top: -1px;
+    margin-left: 6px;
+  }
+
+  .wsmenu > .wsmenu-list > li > a {
+    font-size: 1.2rem;
+  }
+
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:hover,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a,
+  .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a:hover,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu ul.link-list > li > a,
+  .wsmenu > .wsmenu-list > li > .wsmegamenu.w-70 ul.link-list > li > a:hover,
+  .wsmenu
+    > .wsmenu-list
+    > li
+    > .wsmegamenu.halfmenu
+    ul.link-list
+    > li
+    > a:hover {
+    font-size: 1.15rem;
+    padding: 11px 0;
+  }
+
+  .wsmenu > .wsmenu-list > li > .wsmegamenu .title {
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+  }
+}

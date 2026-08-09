@@ -1,0 +1,58 @@
+import { Testimonial } from "../types";
+
+export const testimonialsData = [
+  {
+    id: 1,
+    name: "Richard Gesimba",
+    role: "Operations Director, Huming Manufacturing",
+    avatar: "/assets/images/review-author-1.jpg",
+    rating: 5,
+    text: "ERPNext revolutionized our production planning and inventory management. We've reduced raw material waste by 35% and improved on-time delivery from 72% to 95% within six months.",
+    delay: "animate__delay-2",
+  },
+  {
+    id: 2,
+    name: "Ann Geoncy",
+    role: "Director, Candeur Insights",
+    avatar: "/assets/images/review-author-3.jpg",
+    rating: 5,
+    text: "Financial consolidation across 3 branches now takes 2 days instead of 1 week. ERPNext's reporting capabilities give us real-time insights into profitability by region and product line.",
+    delay: "animate__delay-3",
+  },
+  {
+    id: 3,
+    name: "Anudeep Nellore",
+    role: "Project Manager, Protowind",
+    avatar: "/assets/images/review-author-2.jpg",
+    rating: 4.5,
+    text: "Managing inventory across 12+ stores and 4 online channels was chaos. ERPNext unified everything. Stockouts are down 60%, and inventory turnover improved by 40%.",
+    delay: "animate__delay-4",
+  },
+  {
+    id: 4,
+    name: "Joshua",
+    role: "Operations Director, Stepwise",
+    avatar: "/assets/images/review-author-4.jpg",
+    rating: 5,
+    text: "ERPNext has transformed our entire HR operations. From recruitment and onboarding to attendance tracking and payroll processing, everything is now automated on a single platform. We've reduced HR administrative tasks by 70%, improved payroll accuracy to 100%.",
+    delay: "animate__delay-5",
+  },
+  {
+    id: 5,
+    name: "Dhrubjyoti Sarkar",
+    role: "Director, Synaptron",
+    avatar: "/assets/images/review-author-5.jpg",
+    rating: 4.5,
+    text: "ERPNext's project management and timesheet tracking capabilities have transformed how we manage client engagements. We track 50+ concurrent projects, monitor budgets in real-time, and have improved billable utilization by 35% since implementation.",
+    delay: "animate__delay-6",
+  },
+  {
+    id: 6,
+    name: "Joseph Badu",
+    role: "Operations Head, Inlaks",
+    avatar: "/assets/images/review-author-6.jpg",
+    rating: 5,
+    text: "ERPNext's accounting and financial management capabilities have transformed our finance operations. Automated consolidation across 12 branches, real-time P&L tracking, and streamlined reconciliation have reduced monthly closing from 15 days to just 3 days.",
+    delay: "animate__delay-7",
+  },
+];
