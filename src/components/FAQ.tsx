@@ -23,8 +23,8 @@ export default function FAQ({
   badge = "Questions & Answers",
   title,
   description,
-  buttonText = "Read The FAQs",
-  buttonLink = "faqs.html",
+  buttonText = "Talk to an Expert",
+  buttonLink = "mailto:connect@ww-hub.com",
   items,
   className = "",
 }: FAQProps) {

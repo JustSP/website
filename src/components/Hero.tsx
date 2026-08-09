@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+
 interface HeroProps {
   title?: string;
   subtitle?: string;
@@ -62,10 +64,10 @@ export default function Hero({
 
             <div className="flex max-lg:justify-center text-base 2xs:text-17px xl:text-18px leading-none mt-5 md:mt-7">
               {stats.map((stat, index) => (
-                <>
-                  <span key={index}>{stat}</span>
+                <Fragment key={index}>
+                  <span>{stat}</span>
                   {index < stats.length - 1 && <span className="px-4">|</span>}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>

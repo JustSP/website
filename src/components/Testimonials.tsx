@@ -31,11 +31,11 @@ export default function Testimonials({
         </div>
 
         <div className="reviews-1-wrapper relative pt-19 pb-17 md:pt-17 md:pb-14 after:bg-whitesmoke after:rounded-xl px-4 sm:px-5 md:px-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="owl-carousel reviews-carousel owl-theme">
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className={`review relative bg-white shadow-lg shadow-gray-300/50 rounded-xl mx-2.5 xl:mx-3.5 mb-8 wow animate__animated animate__fadeInUp ${testimonial.delay || ""}`}
+                className="review relative bg-white shadow-lg shadow-gray-300/50 rounded-xl mx-2.5 xl:mx-3.5 mb-8"
               >
                 <div className="p-6 xs:px-8 sm:px-7 lg:px-5 xl:p-8">
                   <div className="absolute top-0.5 lg:top-1 xl:top-2 right-7">

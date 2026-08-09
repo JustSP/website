@@ -113,3 +113,73 @@ export const additionalFeaturesData = [
     delay: "animate__delay-4",
   },
 ];
+
+export const startupFeaturesData: Feature[] = [
+  {
+    id: 1,
+    icon: "flaticon-idea",
+    title: "MVP Development",
+    description:
+      "Ship a validated MVP in 3–8 weeks with our AI-assisted templates and battle-tested starter kits.",
+    delay: "animate__delay-2",
+  },
+  {
+    id: 2,
+    icon: "flaticon-ai",
+    title: "AI Application Templates",
+    description:
+      "Our past success and AI-based application templates help you build your MVP in no time.",
+    delay: "animate__delay-3",
+  },
+  {
+    id: 3,
+    icon: "flaticon-negotiation",
+    title: "Technical Co-founder",
+    description:
+      "We offer technical expertise to facilitate your entrepreneurial journey, positioning ourselves as integral to your startup's success.",
+    delay: "animate__delay-4",
+  },
+  {
+    id: 4,
+    icon: "flaticon-growth",
+    title: "Funding & Incubation",
+    description:
+      "We work with some of the best incubation hubs around to bring the best support and funding to you.",
+    delay: "animate__delay-5",
+  },
+];
+
+export const walletFeaturesData: Feature[] = [
+  {
+    id: 1,
+    icon: "flaticon-currency-exchange",
+    title: "Send & Receive Crypto",
+    description:
+      "Send and receive cryptocurrencies globally with ease, from any device.",
+    delay: "animate__delay-2",
+  },
+  {
+    id: 2,
+    icon: "flaticon-cube",
+    title: "dApps, DeFi & NFTs",
+    description:
+      "Unlock a universe of decentralised applications — explore DeFi, NFTs, and the metaverse seamlessly.",
+    delay: "animate__delay-3",
+  },
+  {
+    id: 3,
+    icon: "flaticon-shield",
+    title: "Bank-Grade Security",
+    description:
+      "Your private keys stay with you, protected by encryption, 2FA, and continuous security audits.",
+    delay: "animate__delay-4",
+  },
+  {
+    id: 4,
+    icon: "flaticon-payment",
+    title: "Stripe Reconciliation",
+    description:
+      "A perfect companion for your Stripe — manage third-party payments and reconciliations with ease.",
+    delay: "animate__delay-5",
+  },
+];

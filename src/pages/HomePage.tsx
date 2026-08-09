@@ -1,18 +1,11 @@
 import {
   featuresData,
-  featureBoxesData,
-  solutionFeaturesData,
-  additionalFeaturesData,
   statisticsData,
   testimonialsData,
   ratingsData,
   faqItems,
   blogPosts,
-  footerSections,
-  socialLinks,
-  footerData,
 } from "../content";
-import { menuItems } from "../content/menu";
 import Hero from "../components/Hero";
 import Header from "../components/Header";
 import Features from "../components/Features";
@@ -22,9 +15,11 @@ import Statistics from "../components/Statistics";
 import Testimonials from "../components/Testimonials";
 import Rating from "../components/Rating";
 import Blog from "../components/Blog";
+import FAQ from "../components/FAQ";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
+import Divider from "../components/Divider";
 export function HomePage() {
   return (
     <>
@@ -34,19 +29,19 @@ export function HomePage() {
         <Header logo="/assets/images/logo-light.png" />
 
         <Hero
-          title="ERPNext Implementation & Technology Solutions"
-          subtitle="End-to-end ERPNext implementation, customization, and resourcing services. We help businesses streamline operations with open-source ERP solutions."
-          ctaText="Our Services"
+          title="You got idea, we got tech."
+          subtitle="From WordPress-based websites to complex ERPs and Web3 products, WISH builds, deploys, hosts, audits, and supports software applications. Consider us your partner."
+          ctaText="Explore Our Services"
           ctaLink="/erpnext"
           videoLink="https://www.youtube.com/watch?v=B2-ur-kEej4"
-          videoText="Explore ERPNext"
+          videoText="How It Works"
           imageSrc="/assets/images/img-02p.png"
-          stats={["Trusted ERPNext Partners", "50+ Successful Implementations"]}
+          stats={["ERPNext, Web & Web3", "50+ Implementations"]}
         />
 
         <Features features={featuresData} />
 
-        <hr className="divider" />
+        <Divider />
 
         <TextContent
           badge="ERPNext Implementation"
@@ -121,20 +116,9 @@ export function HomePage() {
           </div>
         </div>
 
-        <ImageContent
-          title="Share Moments. Share Life"
-          description="Ligula risus auctor tempus magna fusce feugiat lacinia blandit and varius convallis the hendrerit litora varius turpis molestie"
-          imageSrc="/assets/images/social-networks.png"
-          ctaText="Get started - it's free"
-          ctaLink="signup-simple.html"
-          stats={["Free 30 days trial", "Exclusive Support"]}
-        />
-
-        <hr className="divider" />
+        <Divider />
 
         <Statistics title={statisticsData.title} stats={statisticsData.stats} />
-
-        <hr className="divider" />
 
         <TextContent
           badge="Seamless Integration"
@@ -146,6 +130,7 @@ export function HomePage() {
           ]}
           imageSrc="/assets/images/img-08.png"
           reverse={true}
+          className="bg-whitesmoke pb-20 md:pb-22 lg:pb-25 xl:pb-30"
         />
 
         <section
@@ -215,7 +200,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <hr className="divider" />
+        <Divider />
 
         <TextContent
           badge="Business Continuity"
@@ -227,7 +212,10 @@ export function HomePage() {
           ]}
           imageSrc="/assets/images/img-07.png"
           reverse={true}
+          className="pb-20 md:pb-22.5 lg:pb-25 xl:pb-30"
         />
+
+        <Divider />
 
         <TextContent
           badge="Expert Consulting"
@@ -316,8 +304,6 @@ export function HomePage() {
           </div>
         </div>
 
-        <hr className="divider" />
-
         {/* <TextContent
           badge="Intuitive Files Manager"
           title="Fast access to all your media content"
@@ -334,35 +320,36 @@ export function HomePage() {
         /> */}
 
         <Testimonials
-          title="Here's what our amazing customers are saying"
+          title="Here's what our amazing clients are saying"
           testimonials={testimonialsData}
         />
 
         <Rating ratings={ratingsData} />
 
-        <hr className="divider" />
+        <Divider />
 
-        {/* <FAQ
+        <FAQ
+          badge="General FAQs"
           title="Have questions? We have answers"
-          description="Some questions about the OLMO are asked frequently. We have compiled a list of the most common questions people usually ask us!"
+          description="Frequently asked questions about our services — from ERPNext implementations to startups and the WISH Wallet."
           items={faqItems}
         />
 
-        <hr className="divider" /> */}
+        <Divider />
 
         <Blog
           title="Articles, Tutorials & More"
-          description="Ligula risus auctor tempus dolores inceptos fusce lacinia blandit varius habitant convallis hendrerit litora varius undo turpis molestie"
+          description="Insights, tutorials, and updates from the WISH team — from ERPNext and startups to crypto and Web3."
           posts={blogPosts}
         />
 
         <Banner
-          title="Ready to Transform Your Business with ERPNext?"
-          description="Join 50+ businesses that have streamlined operations, reduced costs, and accelerated growth with our expert ERPNext implementation services."
-          ctaText="Schedule a Free Consultation"
-          ctaLink="#contact"
+          title="Ready to Transform Your Business?"
+          description="From WordPress websites to complex ERPs and Web3 products, we build, deploy, host, audit, and support software applications. Consider us your partner."
+          ctaText="Contact Us Today"
+          ctaLink="mailto:connect@ww-hub.com"
           stats={[
-            "50+ Successful Implementations",
+            "50+ Implementations",
             "98% Client Satisfaction",
             "15+ Countries Served",
           ]}
@@ -370,47 +357,50 @@ export function HomePage() {
 
         <Footer
           logo="/assets/images/logo-light.png"
-          description="Your trusted partner for ERPNext implementation, custom development, and technology consulting. We help businesses streamline operations and achieve digital transformation with open-source solutions."
+          description="WISH — Winworld Innovative Solutions Hub. We build, deploy, host, audit, and support software applications — from ERPs and websites to crypto wallets and Web3 products. You got idea, we got tech."
           footerSections={[
             {
               title: "About",
               links: [
-                { label: "About Us", href: "about.html" },
-                { label: "Contact Us", href: "contacts.html" },
+                { label: "About Us", href: "/about" },
+                { label: "Contact Us", href: "/contact" },
               ],
             },
             {
               title: "Discover",
               links: [
-                { label: "ERPNext", href: "features.html" },
-                { label: "Startups", href: "integrations.html" },
-                { label: "Wallet", href: "pricing.html" },
-                { label: "Free Tools", href: "download.html" },
+                { label: "ERPNext", href: "/erpnext" },
+                { label: "Startups", href: "/startups" },
+                { label: "WISH Wallet", href: "/wallet" },
+                { label: "Blog & Insights", href: "/#blog" },
               ],
             },
             {
               title: "Resources",
               links: [
-                { label: "Blog & Insights", href: "blog-page.html" },
-                { label: "Help & Support", href: "faqs.html" },
-                { label: "Press & Media", href: "#" },
+                { label: "Blog & Insights", href: "/#blog" },
+                { label: "Help & Support", href: "/#faqs" },
+                { label: "Startup Program", href: "/startups" },
               ],
             },
             {
               title: "Support",
               links: [
-                { label: "Terms of Use", href: "terms.html" },
-                { label: "Privacy Policy", href: "privacy.html" },
-                { label: "Cookie Policy", href: "cookies.html" },
+                { label: "Terms of Use", href: "/terms" },
+                { label: "Privacy Policy", href: "/privacy" },
+                { label: "Cookie Policy", href: "/cookies" },
               ],
             },
           ]}
           socialLinks={[
-            { label: "Facebook", href: "#" },
-            { label: "LinkedIn", href: "#" },
+            { label: "Facebook", href: "https://www.facebook.com/wwhub" },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/company/ww-hub",
+            },
             { label: "Dribbble", href: "#" },
           ]}
-          copyright="&copy; 2026 WISH. All Rights Reserved"
+          copyright="&copy; 2026 WISH — Winworld Innovative Solutions Hub. All Rights Reserved"
         />
       </div>
       {/* END PAGE CONTENT */}

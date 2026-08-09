@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../utils/scrollToTop";
 
 interface NavLink {
   label: string;
@@ -10,6 +11,8 @@ interface HeaderProps {
   logo?: string;
   links?: NavLink[];
   className?: string;
+  /** "transparent" (default) = white text over dark hero; "solid" = white header with dark text for light pages */
+  variant?: "transparent" | "solid";
 }
 
 const defaultLinks: NavLink[] = [
@@ -23,13 +26,17 @@ export default function Header({
   logo = "/assets/images/logo-light.png",
   links = defaultLinks,
   className = "",
+  variant = "transparent",
 }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const variantClass =
+    variant === "solid" ? "navbar-dark white-menu" : "navbar-light";
 
   return (
     <header
       id="header"
-      className={`tra-menu navbar-light w-full block ${className}`}
+      className={`tra-menu ${variantClass} w-full block ${className}`}
     >
       <div className="header-wrapper flex">
         <div className="wsmobileheader flex">
@@ -73,7 +80,16 @@ export default function Header({
               <ul className="wsmenu-list hover-orange-red">
                 {links.map((link, index) => (
                   <li key={index} className="nl-simple">
-                    <Link to={link.href} className="h-link">
+                    <Link
+                      to={link.href}
+                      className="h-link"
+                      onClick={() => {
+                        // Scroll to top even when clicking a link for the
+                        // current page (pathname doesn't change, so the
+                        // ScrollToTop route effect won't fire).
+                        scrollToTop();
+                      }}
+                    >
                       {link.label}
                     </Link>
                   </li>

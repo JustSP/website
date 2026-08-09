@@ -5,8 +5,8 @@ import { useEffect, useRef } from "react";
 interface Rating {
   platform: string;
   logo: string;
-  rating: string;
-  stars: number;
+  rating?: string;
+  stars?: number;
   delay?: string;
 }
 
@@ -18,7 +18,7 @@ interface RatingProps {
 }
 
 export default function Rating({
-  title = "Our users love us as much as we love them",
+  title = "Backed by leading technologies and platforms",
   ratings,
   className = "",
   speed = 0.5,
@@ -95,8 +95,22 @@ export default function Rating({
           className="relative w-full lg:max-w-210 xl:max-w-230 mx-auto overflow-hidden"
         >
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          <div
+            className="absolute left-0 top-0 h-full z-10 pointer-events-none"
+            style={{
+              width: 56,
+              background:
+                "linear-gradient(to right, #ffffff, rgba(255,255,255,0))",
+            }}
+          ></div>
+          <div
+            className="absolute right-0 top-0 h-full z-10 pointer-events-none"
+            style={{
+              width: 56,
+              background:
+                "linear-gradient(to left, #ffffff, rgba(255,255,255,0))",
+            }}
+          ></div>
 
           <div
             ref={scrollRef}
@@ -109,29 +123,45 @@ export default function Rating({
             {duplicatedRatings.map((rating, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-48 sm:w-56 md:w-64 px-4"
+                style={{
+                  flex: "0 0 auto",
+                  width: 176,
+                  paddingLeft: 16,
+                  paddingRight: 16,
+                }}
               >
-                <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center">
                   <img
                     src={rating.logo}
-                    className="max-h-7 2xs:max-h-8 lg:max-h-8.5 xl:max-h-10"
                     alt={rating.platform}
+                    style={{
+                      maxHeight: 40,
+                      width: "auto",
+                      height: "auto",
+                      display: "block",
+                    }}
                   />
-                  <div className="text-14px xs:text-15px lg:text-base text-yellow-400 mt-2 sm:mt-2.5 whitespace-nowrap">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <span
-                        key={i}
-                        className={
-                          i < Math.floor(rating.stars)
-                            ? "flaticon-star"
-                            : i < rating.stars
-                              ? "flaticon-star-half-empty"
-                              : "flaticon-star-1"
-                        }
-                      ></span>
-                    ))}
-                    <span className="text-gray-500 ml-1">{rating.rating}</span>
-                  </div>
+                  {rating.stars ? (
+                    <div className="text-yellow-400 mt-2">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <span
+                          key={i}
+                          className={
+                            i < Math.floor(rating.stars!)
+                              ? "flaticon-star"
+                              : i < rating.stars!
+                                ? "flaticon-star-half-empty"
+                                : "flaticon-star-1"
+                          }
+                        ></span>
+                      ))}
+                      {rating.rating && (
+                        <span className="text-gray-500 ml-1">
+                          {rating.rating}
+                        </span>
+                      )}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}
