@@ -20,9 +20,15 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 import Divider from "../components/Divider";
+import SEO from "../components/SEO";
 export function WalletPage() {
   return (
     <>
+      <SEO
+        title="WISH Wallet — Crypto & Web3"
+        description="The WISH Wallet unlocks a universe of decentralised applications (dApps). Explore DeFi, NFTs, and the metaverse seamlessly. Send and receive cryptocurrencies globally with ease."
+        path="/wallet"
+      />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

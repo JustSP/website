@@ -1,6 +1,7 @@
 import Preloader from "../components/Preloader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 interface PolicySection {
   heading: string;
@@ -89,6 +90,7 @@ const sections: PolicySection[] = [
 export function PrivacyPolicyPage() {
   return (
     <>
+      <SEO title="Privacy Policy" path="/privacy" />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

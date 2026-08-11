@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
+import SEO from "../components/SEO";
 
 interface Office {
   name: string;
@@ -55,6 +56,11 @@ const contactCards = [
 export function ContactPage() {
   return (
     <>
+      <SEO
+        title="Contact Us"
+        description="Have a project in mind — a website, an ERP, a crypto wallet, or a startup MVP? Our team is ready to help. Send us a message and we'll get back to you within one business day."
+        path="/contact"
+      />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

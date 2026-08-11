@@ -15,9 +15,9 @@ function Placeholder({ title }: { title: string }) {
     </main>
   );
 }
-export default function App() {
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -29,6 +29,14 @@ export default function App() {
         <Route path="/cookies" element={<CookiePolicyPage />} />
         <Route path="*" element={<Placeholder title="Page Not Found" />} />
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

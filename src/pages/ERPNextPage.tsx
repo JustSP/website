@@ -21,9 +21,15 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 import Divider from "../components/Divider";
+import SEO from "../components/SEO";
 export function ERPNextPage() {
   return (
     <>
+      <SEO
+        title="ERPNext Implementation & Development"
+        description="End-to-end ERPNext implementation, customization, and resourcing services. We help businesses streamline operations with open-source ERP solutions."
+        path="/erpnext"
+      />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

@@ -20,9 +20,15 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 import Divider from "../components/Divider";
+import SEO from "../components/SEO";
 export function StartupsPage() {
   return (
     <>
+      <SEO
+        title="Startup MVP Development & Launch"
+        description="Plan. Build. Launch. You got idea, we got tech — WISH helps world-changing ideas become MVPs in 3–8 weeks, with technical co-founder support."
+        path="/startups"
+      />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

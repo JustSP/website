@@ -20,9 +20,20 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 import Divider from "../components/Divider";
+import SEO from "../components/SEO";
 export function HomePage() {
   return (
     <>
+      <SEO
+        title="WISH — Winworld Innovative Solutions Hub"
+        path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "WISH — Winworld Innovative Solutions Hub",
+          url: "https://www.ww-hub.com",
+        }}
+      />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">

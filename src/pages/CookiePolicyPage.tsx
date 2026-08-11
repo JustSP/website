@@ -1,6 +1,7 @@
 import Preloader from "../components/Preloader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 interface CookieSection {
   heading: string;
@@ -67,6 +68,7 @@ const sections: CookieSection[] = [
 export function CookiePolicyPage() {
   return (
     <>
+      <SEO title="Cookie Policy" path="/cookies" />
       <Preloader />
       {/* PAGE CONTENT */}
       <div id="page" className="page-content">
