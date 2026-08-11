@@ -26,7 +26,7 @@ export function WalletPage() {
     <>
       <SEO
         title="WISH Wallet — Crypto & Web3"
-        description="The WISH Wallet unlocks a universe of decentralised applications (dApps). Explore DeFi, NFTs, and the metaverse seamlessly. Send and receive cryptocurrencies globally with ease."
+        description="The WISH Wallet unlocks a universe of dApps — DeFi, NFTs, and the metaverse. Send and receive cryptocurrencies globally with ease."
         path="/wallet"
       />
       <Preloader />

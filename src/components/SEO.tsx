@@ -19,7 +19,7 @@ export interface SEOProps {
 const SITE_NAME = "WISH — Winworld Innovative Solutions Hub";
 const SITE_URL = "https://www.ww-hub.com";
 const DEFAULT_DESCRIPTION =
-  "WISH — Winworld Innovative Solutions Hub. We build, deploy, host, audit, and support software applications — from ERPNext and websites to crypto wallets and Web3 products. You got idea, we got tech.";
+  "WISH — Winworld Innovative Solutions Hub. We build, deploy, host, audit, and support software — from ERPNext to crypto wallets and Web3 products.";
 const DEFAULT_IMAGE = `${SITE_URL}/assets/images/logo-light.png`;
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {

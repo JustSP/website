@@ -58,7 +58,7 @@ export function ContactPage() {
     <>
       <SEO
         title="Contact Us"
-        description="Have a project in mind — a website, an ERP, a crypto wallet, or a startup MVP? Our team is ready to help. Send us a message and we'll get back to you within one business day."
+        description="Have a project in mind — a website, an ERP, a crypto wallet, or a startup MVP? Send us a message and we'll get back within one business day."
         path="/contact"
       />
       <Preloader />

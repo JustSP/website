@@ -27,7 +27,7 @@ export function ERPNextPage() {
     <>
       <SEO
         title="ERPNext Implementation & Development"
-        description="End-to-end ERPNext implementation, customization, and resourcing services. We help businesses streamline operations with open-source ERP solutions."
+        description="End-to-end ERPNext implementation, customization, and resourcing. We help businesses streamline operations with open-source ERP."
         path="/erpnext"
       />
       <Preloader />
