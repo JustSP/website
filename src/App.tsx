@@ -3,6 +3,7 @@ import { HomePage } from "./pages/HomePage";
 import { ERPNextPage } from "./pages/ERPNextPage";
 import { StartupsPage } from "./pages/StartupsPage";
 import { WalletPage } from "./pages/WalletPage";
+import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { CookiePolicyPage } from "./pages/CookiePolicyPage";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/erpnext" element={<ERPNextPage />} />
         <Route path="/startups" element={<StartupsPage />} />
         <Route path="/wallet" element={<WalletPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/cookies" element={<CookiePolicyPage />} />
         <Route path="*" element={<Placeholder title="Page Not Found" />} />

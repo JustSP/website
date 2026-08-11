@@ -360,7 +360,12 @@ export function WalletPage() {
           description="Unlock the universe of decentralised applications. Send and receive crypto globally, explore DeFi, NFTs, and the metaverse — all from one secure wallet built in-house by WISH."
           ctaText="Get the WISH Wallet"
           ctaLink="mailto:connect@ww-hub.com"
-          stats={["Web3.0 ready", "Free 14-day trial", "Bank-grade security"]}
+          stats={[
+            "10+ ERPNext Implementations",
+            "98% Client Satisfaction",
+            "5+ Countries Served",
+            "30+ Products & Apps Built",
+          ]}
         />
 
         <Footer

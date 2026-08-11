@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 interface Testimonial {
   id: string | number;
   name: string;
@@ -19,6 +21,45 @@ export default function Testimonials({
   testimonials,
   className = "",
 }: TestimonialsProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el || typeof $ === "undefined") return;
+
+    const $el = $(el);
+    // main.js initializes the carousel once on document ready for the initial
+    // page (Home). With client-side routing, the element on other pages is
+    // mounted after that, so we initialize it here. Guard against double-init.
+    if (!$el.hasClass("owl-loaded")) {
+      $el.owlCarousel({
+        items: 3,
+        loop: true,
+        autoplay: true,
+        navBy: 1,
+        autoplayTimeout: 4500,
+        autoplayHoverPause: true,
+        smartSpeed: 1500,
+        responsive: {
+          0: { items: 1 },
+          767: { items: 1 },
+          768: { items: 2 },
+          991: { items: 3 },
+          1000: { items: 3 },
+        },
+      });
+    }
+
+    return () => {
+      // Destroy the owl instance on unmount so navigating away doesn't leave
+      // stale owl-stage nodes or orphaned instances behind.
+      if (el && $el.hasClass("owl-loaded")) {
+        $el.owlCarousel("destroy");
+        $el.removeClass("owl-loaded");
+      }
+    };
+  }, []);
+
   return (
     <section id="reviews" className={`md:px-5 lg:px-4 xl:px-8 ${className}`}>
       <div className="container pt-20 md:pt-22.5 lg:pt-25 xl:pt-27.5 text-gray-500">
@@ -31,7 +72,10 @@ export default function Testimonials({
         </div>
 
         <div className="reviews-1-wrapper relative pt-19 pb-17 md:pt-17 md:pb-14 after:bg-whitesmoke after:rounded-xl px-4 sm:px-5 md:px-0">
-          <div className="owl-carousel reviews-carousel owl-theme">
+          <div
+            ref={carouselRef}
+            className="owl-carousel reviews-carousel owl-theme"
+          >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}

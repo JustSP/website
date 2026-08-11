@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Features from "../components/Features";
 import TextContent from "../components/TextContent";
 import ImageContent from "../components/ImageContent";
+import ImageSlider from "../components/ImageSlider";
 import Statistics from "../components/Statistics";
 import Testimonials from "../components/Testimonials";
 import Rating from "../components/Rating";
@@ -116,10 +117,19 @@ export function ERPNextPage() {
           </div>
         </div>
 
-        <ImageContent
+        <ImageSlider
           title="Consider Us Your Technology Partner"
           description="From ERPNext to custom apps and integrations, WISH builds, deploys, hosts, audits, and supports your software — so you can focus on growing your business."
-          imageSrc="/assets/images/social-networks.png"
+          images={[
+            "/assets/images/erpnext/Slide1.PNG",
+            "/assets/images/erpnext/Slide2.PNG",
+            "/assets/images/erpnext/Slide3.PNG",
+            "/assets/images/erpnext/Slide4.PNG",
+            "/assets/images/erpnext/Slide5.PNG",
+            "/assets/images/erpnext/Slide6.PNG",
+            "/assets/images/erpnext/Slide7.PNG",
+          ]}
+          imageAlt="ERPNext slide"
           ctaText="Talk to an Expert"
           ctaLink="mailto:connect@ww-hub.com"
           stats={["Free consultation", "No credit card"]}
@@ -360,9 +370,10 @@ export function ERPNextPage() {
           ctaText="Schedule a Free Consultation"
           ctaLink="mailto:connect@ww-hub.com"
           stats={[
-            "50+ Successful Implementations",
+            "10+ ERPNext Implementations",
             "98% Client Satisfaction",
-            "15+ Countries Served",
+            "5+ Countries Served",
+            "30+ Products & Apps Built",
           ]}
         />
 

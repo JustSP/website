@@ -361,9 +361,10 @@ export function StartupsPage() {
           ctaText="Get Started Now"
           ctaLink="mailto:connect@ww-hub.com"
           stats={[
-            "MVP in 3–8 weeks",
-            "Technical co-founder",
-            "Funding & incubation access",
+            "10+ ERPNext Implementations",
+            "98% Client Satisfaction",
+            "5+ Countries Served",
+            "30+ Products & Apps Built",
           ]}
         />
 

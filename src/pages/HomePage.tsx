@@ -349,9 +349,10 @@ export function HomePage() {
           ctaText="Contact Us Today"
           ctaLink="mailto:connect@ww-hub.com"
           stats={[
-            "50+ Implementations",
+            "10+ ERPNext Implementations",
             "98% Client Satisfaction",
-            "15+ Countries Served",
+            "5+ Countries Served",
+            "30+ Products & Apps Built",
           ]}
         />
 
