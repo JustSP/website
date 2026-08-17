@@ -16,3 +16,13 @@ interface JQueryStatic {
 }
 
 declare const $: JQueryStatic;
+
+// Vite environment variables
+interface ImportMetaEnv {
+  readonly VITE_BREVO_API_KEY: string;
+  readonly VITE_BREVO_NEWSLETTER_LIST_ID: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
