@@ -47,7 +47,10 @@ export function HomePage() {
           videoLink="https://www.youtube.com/watch?v=B2-ur-kEej4"
           videoText="How It Works"
           imageSrc="/assets/images/img-02p.png"
-          stats={["ERPNext, Web & Web3", "50+ Implementations"]}
+          stats={[
+            "ERPNext, Web & Web3",
+            `${statisticsData.stats[0].value} Implementations`,
+          ]}
         />
 
         <Features features={featuresData} />

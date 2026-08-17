@@ -1,3 +1,4 @@
+import { statisticsData } from "../content";
 import Hero from "../components/Hero";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
@@ -74,7 +75,10 @@ export function ContactPage() {
           videoLink="https://www.youtube.com/watch?v=B2-ur-kEej4"
           videoText="Explore Our Work"
           imageSrc="/assets/images/img-01.png"
-          stats={["Udaipur, India", "Sheffield, UK"]}
+          stats={[
+            `${statisticsData.stats[2].value} ${statisticsData.stats[2].label}`,
+            `${statisticsData.stats[1].value} ${statisticsData.stats[1].label}`,
+          ]}
         />
 
         {/* CONTACT INFO */}

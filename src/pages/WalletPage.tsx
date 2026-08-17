@@ -42,7 +42,10 @@ export function WalletPage() {
           videoLink="https://www.youtube.com/watch?v=Riz8G9Y4kWQ"
           videoText="Explore the Wallet"
           imageSrc="/assets/images/img-05.png"
-          stats={["Web3.0 ready", "Send & receive globally"]}
+          stats={[
+            "Web3.0 ready",
+            `${statisticsData.stats[3].value} Products & Apps Built`,
+          ]}
         />
 
         <Features features={walletFeaturesData} />

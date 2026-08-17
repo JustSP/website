@@ -42,7 +42,10 @@ export function StartupsPage() {
           videoLink="https://www.youtube.com/watch?v=B2-ur-kEej4"
           videoText="Explore the Program"
           imageSrc="/assets/images/img-05.png"
-          stats={["MVP in 3–8 weeks", "Technical co-founder"]}
+          stats={[
+            "MVP in 3–8 weeks",
+            `${statisticsData.stats[2].value} Countries Served`,
+          ]}
         />
 
         <Features features={startupFeaturesData} />

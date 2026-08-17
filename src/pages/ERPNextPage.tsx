@@ -43,7 +43,10 @@ export function ERPNextPage() {
           videoLink="https://www.youtube.com/watch?v=B2-ur-kEej4"
           videoText="Explore ERPNext"
           imageSrc="/assets/images/img-01.png"
-          stats={["Trusted ERPNext Partners", "50+ Successful Implementations"]}
+          stats={[
+            "Trusted ERPNext Partners",
+            `${statisticsData.stats[0].value} Implementations`,
+          ]}
         />
 
         <Features features={featuresData} />
