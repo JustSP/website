@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Features from "../components/Features";
 import TextContent from "../components/TextContent";
 import ImageContent from "../components/ImageContent";
+import ErpnextScreenshotsSection from "../components/ErpnextScreenshotsSection";
 import Statistics from "../components/Statistics";
 import Testimonials from "../components/Testimonials";
 import Rating from "../components/Rating";
@@ -242,13 +243,7 @@ export function HomePage() {
           imageSrc="/assets/images/img-03.png"
         />
 
-        <ImageContent
-          title="Custom ERPNext Solutions Tailored to Your Business"
-          description="Transform your business operations with custom ERPNext solutions. We build apps, workflows, and integrations that perfectly align with your unique business processes."
-          imageSrc="/assets/images/dashboard-04.png"
-          videoLink="https://www.youtube.com/watch?v=Riz8G9Y4kWQ"
-          className="bg-01 bg-fixed flex px-3 2xs:px-4 sm:max-lg:px-5 xl:px-8"
-        />
+        <ErpnextScreenshotsSection />
 
         <div className="px-3 2xs:px-4 sm:max-lg:px-5 xl:px-8 bg-gray-100">
           <div className="container py-16 md:py-22 xl:py-25 text-gray-500">
