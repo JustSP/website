@@ -21,7 +21,7 @@ VITE_NEW_RELIC_APP_NAME=WISH-Website
 VITE_NEW_RELIC_APPLICATION_ID=your_application_id
 ```
 
-The browser agent is initialized only when the license key and Browser application ID are present. The app name is informational; find the application ID in the New Relic Browser application settings. Restart Vite after changing environment variables.
+The browser agent is initialized only when the license key and Browser application ID are present. The app name is informational; it cannot replace the application ID. Create a Browser application in New Relic, copy its application ID into `.env.local`, and restart Vite after changing environment variables. The Node command shown by New Relic (`node -r newrelic ...`) does not apply to this static Vite site.
 
 ## Production build
 

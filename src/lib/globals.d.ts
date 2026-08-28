@@ -19,6 +19,7 @@ declare const $: JQueryStatic;
 
 // Vite environment variables
 interface ImportMetaEnv {
+  readonly DEV: boolean;
   readonly VITE_BREVO_API_KEY: string;
   readonly VITE_BREVO_NEWSLETTER_LIST_ID: string;
   readonly VITE_NEW_RELIC_LICENSE_KEY: string;
