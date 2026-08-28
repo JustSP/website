@@ -21,6 +21,9 @@ declare const $: JQueryStatic;
 interface ImportMetaEnv {
   readonly VITE_BREVO_API_KEY: string;
   readonly VITE_BREVO_NEWSLETTER_LIST_ID: string;
+  readonly VITE_NEW_RELIC_LICENSE_KEY: string;
+  readonly VITE_NEW_RELIC_APP_NAME: string;
+  readonly VITE_NEW_RELIC_APPLICATION_ID: string;
 }
 
 interface ImportMeta {
