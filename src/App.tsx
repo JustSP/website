@@ -6,6 +6,8 @@ import { WalletPage } from "./pages/WalletPage";
 import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { CookiePolicyPage } from "./pages/CookiePolicyPage";
+import { BlogIndexPage } from "./pages/BlogIndexPage";
+import { BlogPostPage } from "./pages/BlogPostPage";
 import ScrollToTop from "./components/ScrollToTop";
 function Placeholder({ title }: { title: string }) {
   return (
@@ -27,6 +29,8 @@ export function AppRoutes() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/cookies" element={<CookiePolicyPage />} />
+        <Route path="/blog" element={<BlogIndexPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="*" element={<Placeholder title="Page Not Found" />} />
       </Routes>
     </>

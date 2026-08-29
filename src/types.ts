@@ -64,10 +64,14 @@ export interface StatisticsData {
 export interface BlogPost {
   id: string | number;
   title: string;
+  slug: string;
   category: string;
   date: string;
+  author: string;
   image: string;
   description: string;
+  /** Full article body, rendered as paragraphs. */
+  content: string[];
   comments: number;
   delay?: string;
 }

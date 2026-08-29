@@ -1,6 +1,7 @@
 interface BlogPost {
   id: string | number;
   title: string;
+  slug: string;
   category: string;
   date: string;
   image: string;
@@ -63,15 +64,11 @@ export default function Blog({
                 </div>
 
                 <span className="font-main text-21px 2xs:text-22px xs:max-lg:text-23px xl:text-25px leading-[1.3]">
-                  <a href="blog-post.html">{post.title}</a>
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
                 </span>
 
                 <p className="2xs:max-lg:text-17px xl:text-18px mt-3.5">
                   {post.description}
-                </p>
-
-                <p className="2xs:text-17px xl:text-18px mt-2.5">
-                  {post.comments} Comments
                 </p>
               </div>
             </div>

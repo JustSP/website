@@ -18,6 +18,31 @@ const ROUTES = [
   { path: "/contact", out: "contact/index.html" },
   { path: "/privacy", out: "privacy/index.html" },
   { path: "/cookies", out: "cookies/index.html" },
+  { path: "/blog", out: "blog/index.html" },
+  {
+    path: "/blog/migrate-from-tally-or-excel-to-erpnext",
+    out: "blog/migrate-from-tally-or-excel-to-erpnext/index.html",
+  },
+  {
+    path: "/blog/erpnext-vs-proprietary-erps-cost-of-ownership",
+    out: "blog/erpnext-vs-proprietary-erps-cost-of-ownership/index.html",
+  },
+  {
+    path: "/blog/idea-to-mvp-in-6-weeks",
+    out: "blog/idea-to-mvp-in-6-weeks/index.html",
+  },
+  {
+    path: "/blog/wish-wallet-defi-nfts-metaverse",
+    out: "blog/wish-wallet-defi-nfts-metaverse/index.html",
+  },
+  {
+    path: "/blog/why-open-source-is-winning",
+    out: "blog/why-open-source-is-winning/index.html",
+  },
+  {
+    path: "/blog/reconciling-stripe-payments-with-wish-wallet",
+    out: "blog/reconciling-stripe-payments-with-wish-wallet/index.html",
+  },
 ];
 
 const root = process.cwd();

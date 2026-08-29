@@ -154,13 +154,13 @@ export function PrivacyPolicyPage() {
                 { label: "ERPNext", href: "/erpnext" },
                 { label: "Startups", href: "/startups" },
                 { label: "WISH Wallet", href: "/wallet" },
-                { label: "Blog & Insights", href: "/#blog" },
+                { label: "Blog & Insights", href: "/blog" },
               ],
             },
             {
               title: "Resources",
               links: [
-                { label: "Blog & Insights", href: "/#blog" },
+                { label: "Blog & Insights", href: "/blog" },
                 { label: "Help & Support", href: "/#faqs" },
                 { label: "Startup Program", href: "/startups" },
               ],
