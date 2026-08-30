@@ -41,7 +41,12 @@ export default function Header({
       <div className="header-wrapper flex">
         <div className="wsmobileheader flex">
           <span className="smllogo mt-5.5 pl-4 sm:pl-4.5 md:pl-5.5">
-            <Link to="#hero">
+            <Link
+              to="/"
+              onClick={() => {
+                scrollToTop();
+              }}
+            >
               <img src={logo} className="max-h-9" alt="mobile-logo" />
             </Link>
           </span>
@@ -57,7 +62,13 @@ export default function Header({
         <div className="wsmainfull menu clearfix">
           <div className="wsmainwp clearfix">
             <div className="desktoplogo">
-              <Link to="#hero" className="logo-black">
+              <Link
+                to="/"
+                className="logo-black"
+                onClick={() => {
+                  scrollToTop();
+                }}
+              >
                 <img
                   src={logo}
                   className="lg:max-h-8.5 xl:max-h-9.5"
@@ -67,7 +78,13 @@ export default function Header({
             </div>
 
             <div className="desktoplogo">
-              <Link to="#hero" className="logo-white">
+              <Link
+                to="/"
+                className="logo-white"
+                onClick={() => {
+                  scrollToTop();
+                }}
+              >
                 <img
                   src="/assets/images/logo-light.png"
                   className="lg:max-h-8.5 xl:max-h-9.5"
