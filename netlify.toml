@@ -3,6 +3,10 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# These values are public website configuration, not credentials.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "RECAPTCHA_ALLOWED_HOSTNAMES,CONTACT_FROM_EMAIL,CONTACT_TO_EMAIL,VITE_NEW_RELIC_APP_NAME"
+
 [dev]
   command = "npm run dev"
   targetPort = 5173
