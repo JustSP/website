@@ -80,7 +80,22 @@ export default async function contact(request) {
         tags: ['contact-form', 'website'],
       }),
     });
-    if (!response.ok) return json(502, { error: 'Your message could not be sent. Please email connect@ww-hub.com.' });
+    if (!response.ok) {
+      const failure = await response.json().catch(() => ({}));
+      const message = typeof failure.message === 'string' ? failure.message.toLowerCase() : '';
+      // Classify provider errors without logging credentials or submitted content.
+      const reason = response.status === 401 ? 'authentication' :
+        /ip|whitelist|allowlist/.test(message) && response.status === 403 ? 'ip-restriction' :
+        /sender|domain/.test(message) ? 'sender-configuration' :
+        /credit|quota|limit/.test(message) ? 'sending-limit' :
+        response.status === 403 ? 'account-permission' : 'provider-rejection';
+      console.warn('Brevo email rejected', JSON.stringify({
+        status: response.status,
+        code: typeof failure.code === 'string' && /^[a-z_]+$/i.test(failure.code) ? failure.code : null,
+        reason,
+      }));
+      return json(502, { error: 'Your message could not be sent. Please email connect@ww-hub.com.', reference: `email-${reason}` });
+    }
     return json(200, { success: true });
   } catch {
     return json(502, { error: 'The service is temporarily unavailable. Please try again or email connect@ww-hub.com.' });
