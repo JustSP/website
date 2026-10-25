@@ -38,47 +38,44 @@ npm run preview
 
 ## Contact form and reCAPTCHA on Netlify
 
-The `/contact` form displays a bottom-right reCAPTCHA badge and runs verification
-when the visitor clicks Send Message. Google may display a challenge if needed.
-Use a key registered for **v2 Invisible reCAPTCHA**, rather than a checkbox or v3 key.
+The `/contact` form uses the Google Cloud reCAPTCHA Enterprise JavaScript API
+with an invisible widget and the `contact` action. It submits JSON to
+`POST /.netlify/functions/contact`. The function creates an assessment and
+requires a valid token, an allowed hostname, the expected action, and a risk
+score of at least 0.5 before sending via Brevo. A visible badge alone does not
+establish that backend verification works.
 
-The `/contact` form submits to `POST /.netlify/functions/contact`. The function
-verifies the invisible reCAPTCHA v2 token with Google, checks the returned hostname against
-an explicit allowlist, and only then sends the message using Brevo. Email sender
-and recipient are server configuration; visitors cannot override them.
+Set these production environment variables in Netlify:
 
-In Netlify **Project configuration → Environment variables**, set:
-
-- `VITE_RECAPTCHA_SITE_KEY`: your public v2 Invisible reCAPTCHA site key (available to builds).
-- `RECAPTCHA_SECRET_KEY`: the matching secret (Functions scope only).
-- `RECAPTCHA_ALLOWED_HOSTNAMES`: comma-separated exact hostnames, e.g.
-  `ww-hub.com,www.ww-hub.com` (Functions scope).
-- `BREVO_API_KEY`: your Brevo API key (Functions scope only).
-- Optional `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL`: both default to
+- `VITE_RECAPTCHA_SITE_KEY`: public invisible site key, available to Builds and Functions.
+- `RECAPTCHA_PROJECT_ID`: `wish-website`, available to Functions.
+- `RECAPTCHA_GOOGLE_API_KEY`: private Google Cloud API key from that project,
+  available to Functions only. Restrict it to the reCAPTCHA Enterprise API.
+- `RECAPTCHA_ALLOWED_HOSTNAMES`: `ww-hub.com,www.ww-hub.com`, available to Functions.
+- `RECAPTCHA_MIN_SCORE`: optional threshold from 0 to 1; defaults to 0.5.
+- `BREVO_API_KEY`: private Brevo key, available to Functions only.
+- `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL`: optional, both default to
   `connect@ww-hub.com`. The sender must be verified in Brevo.
 
-Register the same website domains in Google's reCAPTCHA admin console. Add any
-Netlify hostname you actually use to both Google's domain settings and the
-function's allowlist. Redeploy after configuration. Do not put either secret in
-a `VITE_` variable. The older unused Brevo example components use a browser key;
-the live contact form does not import those examples or services.
+Enable the reCAPTCHA Enterprise API in the Google Cloud project containing the
+site key. The Google Cloud API key is a different credential from the old
+reCAPTCHA legacy secret. The function no longer uses `RECAPTCHA_SECRET_KEY`.
+Do not prefix either private API key with `VITE_`. Public configuration may use
+Any scope, but private credentials should use Functions scope where available.
 
-For local full-stack development, run `npx netlify-cli dev` with the server
-variables configured in an ignored `.env` file or through the linked Netlify
-project. Plain `npm run dev` serves only the frontend. For local CAPTCHA testing,
-allow `localhost` in Google and `RECAPTCHA_ALLOWED_HOSTNAMES`.
+Register the site's domains in Google's key settings. Add any Netlify hostname
+you use to both Google and the function allowlist. Deploy after setting variables.
+Plain `npm run dev` serves only the frontend; use `npx netlify-cli dev` for the
+function, with server variables configured privately in your local environment.
 
-### Submission contract
+JSON submission fields: `name` (up to 100 chars), `email` (254), `subject` (200),
+`message` (5000), and a fresh `token` (4096). Success is `200 { "success": true }`
+after Brevo accepts the email, which does not confirm inbox delivery. Errors
+return `{ "error": "user-facing message" }` with status 400 (invalid input or
+assessment rejection), 405 (method), 413 (size), 415 (content type), 503 (missing
+or incompatible settings), or 502 (upstream failure). Challenges reset after
+each submission attempt. Server logs contain only assessment status, rejection
+reason, hostname check, action check, and score, never tokens or form content.
 
-JSON fields: `name` (1–100 chars), `email` (valid email, up to 254), `subject`
-(1–200), `message` (1–5000), `token` (fresh reCAPTCHA response, up to 4096).
-The endpoint accepts POST with `Content-Type: application/json` and returns
-`200 { "success": true }` once Brevo accepts the email. Errors return
-`{ "error": "user-facing message" }` with status 400 (validation/CAPTCHA),
-405 (method), 413 (size), 415 (content type), 503 (missing configuration),
-or 502 (upstream failure). Google tokens are single use: the client resets the
-challenge after every submission attempt. Acceptance by Brevo does not confirm
-inbox delivery.
-
-Production verification still requires the real Netlify environment, a completed
-Google challenge, and confirmation that the resulting email arrives.
+Live verification requires a real challenge, a successful assessment, and
+confirmation that the email arrives. Tune the score threshold using real traffic.

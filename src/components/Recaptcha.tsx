@@ -7,13 +7,13 @@ type CaptchaAPI = {
 };
 declare global {
   interface Window {
-    grecaptcha?: CaptchaAPI;
+    grecaptcha?: { enterprise?: CaptchaAPI };
     wishRecaptchaReady?: () => void;
   }
 }
 let pending: Promise<CaptchaAPI> | undefined;
 function loadCaptcha(): Promise<CaptchaAPI> {
-  if (window.grecaptcha?.render) return Promise.resolve(window.grecaptcha);
+  if (window.grecaptcha?.enterprise?.render) return Promise.resolve(window.grecaptcha.enterprise!);
   if (pending) return pending;
   pending = new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -28,10 +28,10 @@ function loadCaptcha(): Promise<CaptchaAPI> {
     window.wishRecaptchaReady = () => {
       window.clearTimeout(timer);
       delete window.wishRecaptchaReady;
-      if (window.grecaptcha) resolve(window.grecaptcha);
+      if (window.grecaptcha?.enterprise) resolve(window.grecaptcha.enterprise);
       else fail();
     };
-    script.src = "https://www.google.com/recaptcha/api.js?onload=wishRecaptchaReady&render=explicit";
+    script.src = "https://www.google.com/recaptcha/enterprise.js?onload=wishRecaptchaReady&render=explicit";
     script.async = true;
     script.defer = true;
     script.onerror = fail;
@@ -73,7 +73,7 @@ export default function Recaptcha({ ref, onReady }: {
   useImperativeHandle(ref, () => ({
     execute: () => {
       const id = widget.current;
-      const api = window.grecaptcha;
+      const api = window.grecaptcha?.enterprise;
       if (id === null || !api) return Promise.reject(new Error("Verification is still loading. Please try again."));
       if (attempt.current) return Promise.reject(new Error("Verification is already in progress."));
       setError("");
@@ -95,7 +95,7 @@ export default function Recaptcha({ ref, onReady }: {
     },
     reset: () => {
       finish(undefined, "Verification was reset. Please try again.");
-      if (widget.current !== null) window.grecaptcha?.reset(widget.current);
+      if (widget.current !== null) window.grecaptcha?.enterprise?.reset(widget.current);
     },
   }));
 
@@ -111,6 +111,7 @@ export default function Recaptcha({ ref, onReady }: {
         sitekey: siteKey,
         size: "invisible",
         badge: "bottomright",
+        action: "contact",
         callback: (token: string) => { if (active) finish(token); },
         "expired-callback": () => { if (active) finish(undefined, "Verification expired. Please try again."); },
         "error-callback": () => {
@@ -125,7 +126,7 @@ export default function Recaptcha({ ref, onReady }: {
       active = false;
       readyCallback.current(false);
       finish(undefined, "Verification was cancelled.");
-      if (widget.current !== null) window.grecaptcha?.reset(widget.current);
+      if (widget.current !== null) window.grecaptcha?.enterprise?.reset(widget.current);
       widget.current = null;
       target.remove();
     };

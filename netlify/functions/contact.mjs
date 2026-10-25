@@ -6,10 +6,13 @@ export default async function contact(request) {
   if (request.method !== 'POST') {
     return new Response(null, { status: 405, headers: { Allow: 'POST' } });
   }
-  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  const googleApiKey = process.env.RECAPTCHA_GOOGLE_API_KEY;
+  const projectId = process.env.RECAPTCHA_PROJECT_ID;
+  const siteKey = process.env.VITE_RECAPTCHA_SITE_KEY;
+  const minimumScore = Number(process.env.RECAPTCHA_MIN_SCORE || '0.5');
   const apiKey = process.env.BREVO_API_KEY;
   const hosts = (process.env.RECAPTCHA_ALLOWED_HOSTNAMES || '').split(',').map(s => s.trim()).filter(Boolean);
-  if (!secret || !apiKey || !hosts.length) {
+  if (!googleApiKey || !projectId || !siteKey || !apiKey || !hosts.length || !Number.isFinite(minimumScore) || minimumScore < 0 || minimumScore > 1) {
     return json(503, { error: 'The contact form is temporarily unavailable. Please email connect@ww-hub.com.' });
   }
   if (!request.headers.get('content-type')?.includes('application/json')) {
@@ -35,32 +38,34 @@ export default async function contact(request) {
     return json(400, { error: 'Please check your name, email address and subject.' });
   }
   try {
-    const verification = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    const verification = await fetch(`https://recaptchaenterprise.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/assessments`, {
       method: 'POST',
-      body: new URLSearchParams({ secret, response: data.token }),
+      headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': googleApiKey },
+      body: JSON.stringify({ event: { token: data.token, siteKey, expectedAction: 'contact' } }),
       signal: AbortSignal.timeout(10000),
     });
-    if (!verification.ok) return json(502, { error: 'Verification is unavailable. Please try again.' });
+    if (!verification.ok) {
+      console.warn('reCAPTCHA assessment API failed', JSON.stringify({ status: verification.status }));
+      return json(502, { error: 'Verification is unavailable. Please try again or email connect@ww-hub.com.' });
+    }
     const result = await verification.json();
-    if (result.success !== true || !hosts.includes(result.hostname)) {
-      // Log only Google's error codes and hostname checks; never tokens, secrets or form data.
-      console.warn('reCAPTCHA rejected', JSON.stringify({
-        success: result.success === true,
-        codes: result['error-codes'] || [],
-        hostname: result.hostname || null,
-        hostnameAllowed: hosts.includes(result.hostname),
+    const properties = result.tokenProperties || {};
+    const score = result.riskAnalysis?.score;
+    const hostnameAllowed = hosts.includes(properties.hostname);
+    const actionAllowed = properties.action === 'contact';
+    if (properties.valid !== true || !hostnameAllowed || !actionAllowed ||
+        typeof score !== 'number' || !Number.isFinite(score) || score < minimumScore) {
+      // Never log tokens, API keys, or submitted form data.
+      console.warn('reCAPTCHA assessment rejected', JSON.stringify({
+        valid: properties.valid === true,
+        reason: properties.invalidReason || null,
+        hostname: properties.hostname || null,
+        hostnameAllowed, actionAllowed, score: score ?? null,
       }));
-      const codes = result['error-codes'] || [];
-      if (result.success === true) {
-        return json(503, { error: 'This website hostname is not enabled for the contact form. Please email connect@ww-hub.com.' });
+      if (properties.valid === true && (!hostnameAllowed || !actionAllowed)) {
+        return json(503, { error: 'The contact form verification settings need attention. Please email connect@ww-hub.com.' });
       }
-      if (codes.includes('invalid-input-secret') || codes.includes('missing-input-secret')) {
-        return json(503, { error: 'The contact form verification key is misconfigured. Please email connect@ww-hub.com.' });
-      }
-      if (codes.includes('timeout-or-duplicate')) {
-        return json(400, { error: 'Verification expired or was already used. Please click Send Message to verify again.' });
-      }
-      return json(400, { error: 'Google could not verify this challenge. Please reload the page and try again.', code: 'captcha-rejected' });
+      return json(400, { error: 'Google could not verify this submission. Please reload and try again or email connect@ww-hub.com.' });
     }
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
