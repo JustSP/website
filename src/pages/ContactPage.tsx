@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 import SEO from "../components/SEO";
+import ContactForm from "../components/ContactForm";
 
 interface Office {
   name: string;
@@ -112,6 +113,16 @@ export function ContactPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-3 2xs:px-4 sm:max-lg:px-5 xl:px-8" aria-labelledby="contact-form-title">
+          <div className="container pb-20 text-gray-500">
+            <div className="max-w-176 mx-auto bg-whitesmoke rounded-2xl p-7 xs:p-8 xl:p-10">
+              <h2 id="contact-form-title" className="text-32px mb-4">Send Us a Message</h2>
+              <p className="mb-6">Tell us about your project. We’ll reply within one business day.</p>
+              <ContactForm />
             </div>
           </div>
         </section>
