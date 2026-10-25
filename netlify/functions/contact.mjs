@@ -43,6 +43,13 @@ export default async function contact(request) {
     if (!verification.ok) return json(502, { error: 'Verification is unavailable. Please try again.' });
     const result = await verification.json();
     if (result.success !== true || !hosts.includes(result.hostname)) {
+      // Log only Google's error codes and hostname checks; never tokens, secrets or form data.
+      console.warn('reCAPTCHA rejected', JSON.stringify({
+        success: result.success === true,
+        codes: result['error-codes'] || [],
+        hostname: result.hostname || null,
+        hostnameAllowed: hosts.includes(result.hostname),
+      }));
       return json(400, { error: 'reCAPTCHA verification failed. Please complete the challenge again.' });
     }
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
