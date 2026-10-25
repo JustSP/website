@@ -50,7 +50,17 @@ export default async function contact(request) {
         hostname: result.hostname || null,
         hostnameAllowed: hosts.includes(result.hostname),
       }));
-      return json(400, { error: 'reCAPTCHA verification failed. Please complete the challenge again.' });
+      const codes = result['error-codes'] || [];
+      if (result.success === true) {
+        return json(503, { error: 'This website hostname is not enabled for the contact form. Please email connect@ww-hub.com.' });
+      }
+      if (codes.includes('invalid-input-secret') || codes.includes('missing-input-secret')) {
+        return json(503, { error: 'The contact form verification key is misconfigured. Please email connect@ww-hub.com.' });
+      }
+      if (codes.includes('timeout-or-duplicate')) {
+        return json(400, { error: 'Verification expired or was already used. Please click Send Message to verify again.' });
+      }
+      return json(400, { error: 'Google could not verify this challenge. Please reload the page and try again.', code: 'captcha-rejected' });
     }
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
